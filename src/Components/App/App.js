@@ -43,24 +43,18 @@ class App extends React.Component {
           <h1>Circuit timer</h1>
           <InputCard 
             title="Active time"
-          />
-          <InputBox
             name="activeTime"
-            updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
             time={activeTime.toString()}
+            updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
           />
           <InputCard 
             title="Rest time"
-          />
-          <InputBox
             name="restTime"
             updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
             time={restTime.toString()}
           />
            <InputCard 
             title="Intervals"
-          />
-          <InputBox
             name="intervals"
             updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
             time={intervals.toString()}
