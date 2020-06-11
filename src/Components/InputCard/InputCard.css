@@ -1,0 +1,7 @@
+.inputCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 16px 0;
+}

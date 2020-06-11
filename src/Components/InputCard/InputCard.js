@@ -11,13 +11,13 @@ const InputCard = ({
   time
 }) => {
   return (
-    <>
-    <h3>{title}:</h3>
-    <InputBox 
-      time={time}
-      name={name}
-      updateTime={updateTime}/>
-    </>
+    <div className="inputCard">
+      <h3>{title}:</h3>
+      <InputBox
+        time={time}
+        name={name}
+        updateTime={updateTime} />
+    </div>
   )
 }
 
