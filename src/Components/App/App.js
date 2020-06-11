@@ -3,7 +3,6 @@ import React from "react";
 import Timer from "../Timer/Timer";
 import Button from "../Button/Button";
 import InputCard from "../InputCard/InputCard";
-import InputBox from "../InputBox/InputBox";
 import "./App.css";
 
 class App extends React.Component {
