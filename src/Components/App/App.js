@@ -2,17 +2,18 @@ import React from "react";
 
 import Timer from "../Timer/Timer";
 import Button from "../Button/Button";
-import Input from "../Input/Input";
+import InputCard from "../InputCard/InputCard";
+import InputBox from "../InputBox/InputBox";
 import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTime: 35,
-      restTime: 15,
-      intervals: 2,
-      totalTime: 100
+      activeTime: 20,
+      restTime: 10,
+      intervals: 5,
+      totalTime: 300
     }
   }
 
@@ -27,9 +28,10 @@ class App extends React.Component {
     this.setState({
       [name]: value
     });
-    const { activeTime, restTime } = this.state;
+    const { activeTime, restTime, intervals } = this.state;
+    const newTotal = intervals * (activeTime + restTime);
     this.setState({
-      totalTime: activeTime + restTime
+      totalTime: newTotal
     });
   }
 
@@ -39,20 +41,26 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Circuit timer</h1>
-          <h3>Active time:</h3>
-          <Input
+          <InputCard 
+            title="Active time"
+          />
+          <InputBox
             name="activeTime"
             updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
             time={activeTime.toString()}
           />
-          <h3>Rest time:</h3>
-          <Input
+          <InputCard 
+            title="Rest time"
+          />
+          <InputBox
             name="restTime"
             updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
             time={restTime.toString()}
           />
-          <h3>Intervals:</h3>
-          <Input
+           <InputCard 
+            title="Intervals"
+          />
+          <InputBox
             name="intervals"
             updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
             time={intervals.toString()}

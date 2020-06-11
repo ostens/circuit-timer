@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./Input.css"
+import "./InputBox.css"
 
-const Input = ({
+const InputBox = ({
   name,
   time,
   updateTime
@@ -17,17 +17,18 @@ const Input = ({
       name={name}
       type="number"
       value={time}
-      min="10"
-      max="100"
+      min="1"
+      max="30"
       maxLength={3}
       onChange={handleChange}
     />
   )
 }
 
-Input.propTypes = {
+InputBox.propTypes = {
+  name: PropTypes.string,
   time: PropTypes.string,
   updateTime: PropTypes.func.isRequired
 }
 
-export default Input;
+export default InputBox;
