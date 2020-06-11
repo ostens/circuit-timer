@@ -9,41 +9,56 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: 60
+      activeTime: 35,
+      restTime: 15,
+      intervals: 2,
+      totalTime: 100
     }
   }
 
   handleClick() {
-    const { time } = this.state;
+    const { totalTime } = this.state;
     this.setState({
-      time: time - 1
+      totalTime: totalTime - 1
     });
   }
 
-  handleUpdate(input) {
+  handleUpdate(name, value) {
     this.setState({
-      time: input
+      [name]: value
+    });
+    const { activeTime, restTime } = this.state;
+    this.setState({
+      totalTime: activeTime + restTime
     });
   }
 
   render() {
-    const { time } = this.state;
+    const { totalTime, activeTime, restTime, intervals } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <h1>Circuit timer</h1>
           <h3>Active time:</h3>
           <Input
-            updateTime={(input) => this.handleUpdate(parseInt(input))}
-            time={time.toString()}
+            name="activeTime"
+            updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
+            time={activeTime.toString()}
           />
           <h3>Rest time:</h3>
           <Input
-            updateTime={(input) => this.handleUpdate(parseInt(input))}
-            time={time.toString()}
+            name="restTime"
+            updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
+            time={restTime.toString()}
+          />
+          <h3>Intervals:</h3>
+          <Input
+            name="intervals"
+            updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
+            time={intervals.toString()}
           />
           <Timer
-            seconds={time}
+            seconds={totalTime}
           />
           <Button onClick={() => this.handleClick()} />
         </header>

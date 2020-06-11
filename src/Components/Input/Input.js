@@ -4,16 +4,17 @@ import PropTypes from "prop-types";
 import "./Input.css"
 
 const Input = ({
+  name,
   time,
   updateTime
 }) => {
 
-  const handleChange = event => updateTime(event.target.value);
+  const handleChange = event => updateTime(event.target.name, event.target.value);
 
   return (
     <input
       className="input"
-      name="Time Input"
+      name={name}
       type="number"
       value={time}
       min="10"
