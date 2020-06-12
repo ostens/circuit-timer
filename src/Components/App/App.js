@@ -13,24 +13,28 @@ class App extends React.Component {
       restTime: 10,
       intervals: 5,
       totalTime: 300,
-      timeRemaining: 300,
-      active: false
+      remainingTime: 300,
+      countingDown: false,
+      active: false,
+
     }
     this.countDown = this.countDown.bind(this);
   }
 
-  handleClick() {
-    setInterval(this.countDown, 1000);
-    this.setState({
-      active: true
-    })
+  startCountdown() {
+    let intervalId = setInterval(this.countDown, 1000);
+    this.setState({ intervalId: intervalId });
+  }
+
+  stopCountdown() {
+    clearInterval(this.state.intervalId);
   }
 
   countDown() {
-    let { timeRemaining, active } = this.state;
-    if (timeRemaining > 0 && active) {
+    let { remainingTime, countingDown } = this.state;
+    if (remainingTime > 0 && countingDown) {
       this.setState({
-        timeRemaining: timeRemaining - 1
+        remainingTime: remainingTime - 1
       });
     }
   }
@@ -43,30 +47,34 @@ class App extends React.Component {
   }
 
   handlePause() {
-    let { active } = this.state;
+    let { countingDown, active } = this.state;
+    if (!active) { this.startCountdown() };
     this.setState({
-      active: !active
+      active: true,
+      countingDown: !countingDown
     })
   }
 
   handleReset() {
     let { totalTime } = this.state;
+    this.stopCountdown();
     this.setState({
       active: false,
-      timeRemaining: totalTime
+      countingDown: false,
+      remainingTime: totalTime
     })
   }
 
   updateTotal() {
     const { activeTime, restTime, intervals } = this.state;
-    const newTotal = intervals * (activeTime + restTime);
+    const totalTime = intervals * (activeTime + restTime);
     this.setState({
-      totalTime: newTotal
+      totalTime: totalTime
     });
   }
 
   render() {
-    const { timeRemaining, activeTime, restTime, intervals, active } = this.state;
+    const { remainingTime, activeTime, restTime, intervals, countingDown } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -91,23 +99,18 @@ class App extends React.Component {
           />
           <div className="controlButtonWrapper">
             <Button
-              title="Start"
-              disabled={active}
-              onClick={() => this.handleClick()}
-            />
-            <Button
-              title={active ? "Pause" : "Play"}
+              title={countingDown ? "Pause" : "Play"}
               disabled={false}
               onClick={() => this.handlePause()}
             />
             <Button
-              title={"Reset"}
+              title="Reset"
               disabled={false}
               onClick={() => this.handleReset()}
             />
           </div>
           <Timer
-            seconds={timeRemaining}
+            seconds={remainingTime}
           />
         </header>
       </div>
