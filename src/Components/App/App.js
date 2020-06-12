@@ -14,19 +14,30 @@ class App extends React.Component {
       intervals: 5,
       totalTime: 300
     }
+    this.countDown = this.countDown.bind(this);
   }
 
   handleClick() {
-    const { totalTime } = this.state;
-    this.setState({
-      totalTime: totalTime - 1
-    });
+    setInterval(this.countDown, 1000);
+  }
+
+  countDown() {
+    let { totalTime } = this.state;
+    if (totalTime > 0) {
+      this.setState({
+        totalTime: totalTime - 1
+      });
+    }
   }
 
   handleUpdate(name, value) {
     this.setState({
       [name]: value
     });
+    this.updateTotal();
+  }
+
+  updateTotal() {
     const { activeTime, restTime, intervals } = this.state;
     const newTotal = intervals * (activeTime + restTime);
     this.setState({
@@ -40,19 +51,19 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Circuit timer</h1>
-          <InputCard 
+          <InputCard
             title="Active time"
             name="activeTime"
             time={activeTime.toString()}
             updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
           />
-          <InputCard 
+          <InputCard
             title="Rest time"
             name="restTime"
             updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
             time={restTime.toString()}
           />
-           <InputCard 
+          <InputCard
             title="Intervals"
             name="intervals"
             updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
@@ -66,8 +77,6 @@ class App extends React.Component {
       </div>
     );
   }
-
-
 }
 
 export default App;
