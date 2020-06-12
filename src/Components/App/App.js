@@ -89,23 +89,25 @@ class App extends React.Component {
             updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
             time={intervals.toString()}
           />
+          <div className="controlButtonWrapper">
+            <Button
+              title="Start"
+              disabled={active}
+              onClick={() => this.handleClick()}
+            />
+            <Button
+              title={active ? "Pause" : "Play"}
+              disabled={false}
+              onClick={() => this.handlePause()}
+            />
+            <Button
+              title={"Reset"}
+              disabled={false}
+              onClick={() => this.handleReset()}
+            />
+          </div>
           <Timer
             seconds={timeRemaining}
-          />
-          <Button
-            title="Start"
-            disabled={active}
-            onClick={() => this.handleClick()}
-          />
-          <Button
-            title={active ? "Pause" : "Play"}
-            disabled={false}
-            onClick={() => this.handlePause()}
-          />
-          <Button
-            title={"Reset"}
-            disabled={false}
-            onClick={() => this.handleReset()}
           />
         </header>
       </div>
