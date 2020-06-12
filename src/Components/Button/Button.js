@@ -4,12 +4,14 @@ import PropTypes from "prop-types";
 import "./Button.css"
 
 const Button = ({
-  onClick
+  disabled = false,
+  onClick = () => {}
 }) => {
   return (
     <button
       className="button"
-      onClick={() => { onClick() }}
+      disabled={disabled}
+      onClick={onClick}
     >
       Start
     </button>
@@ -17,6 +19,7 @@ const Button = ({
 }
 
 Button.propTypes = {
+  disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired
 }
 

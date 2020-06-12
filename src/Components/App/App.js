@@ -12,13 +12,17 @@ class App extends React.Component {
       activeTime: 20,
       restTime: 10,
       intervals: 5,
-      totalTime: 300
+      totalTime: 300,
+      active: false
     }
     this.countDown = this.countDown.bind(this);
   }
 
   handleClick() {
     setInterval(this.countDown, 1000);
+    this.setState({
+      active: true
+    })
   }
 
   countDown() {
@@ -46,7 +50,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { totalTime, activeTime, restTime, intervals } = this.state;
+    const { totalTime, activeTime, restTime, intervals, active } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -72,7 +76,10 @@ class App extends React.Component {
           <Timer
             seconds={totalTime}
           />
-          <Button onClick={() => this.handleClick()} />
+          <Button
+            disabled={active}
+            onClick={() => this.handleClick()}
+          />
         </header>
       </div>
     );

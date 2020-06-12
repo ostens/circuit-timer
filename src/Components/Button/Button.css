@@ -12,5 +12,8 @@
   border: none;
   outline: none;
   margin: 8px;
+}
 
+.button:disabled {
+  background-color: grey;
 }
