@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./Button.css"
 
 const Button = ({
+  title,
   disabled = false,
   onClick = () => {}
 }) => {
@@ -13,12 +14,13 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
     >
-      Start
+      {title}
     </button>
   )
 }
 
 Button.propTypes = {
+  title: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired
 }

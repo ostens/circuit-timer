@@ -13,6 +13,7 @@ class App extends React.Component {
       restTime: 10,
       intervals: 5,
       totalTime: 300,
+      timeRemaining: 300,
       active: false
     }
     this.countDown = this.countDown.bind(this);
@@ -26,10 +27,10 @@ class App extends React.Component {
   }
 
   countDown() {
-    let { totalTime } = this.state;
-    if (totalTime > 0) {
+    let { timeRemaining, active } = this.state;
+    if (timeRemaining > 0 && active) {
       this.setState({
-        totalTime: totalTime - 1
+        timeRemaining: timeRemaining - 1
       });
     }
   }
@@ -41,6 +42,21 @@ class App extends React.Component {
     this.updateTotal();
   }
 
+  handlePause() {
+    let { active } = this.state;
+    this.setState({
+      active: !active
+    })
+  }
+
+  handleReset() {
+    let { totalTime } = this.state;
+    this.setState({
+      active: false,
+      timeRemaining: totalTime
+    })
+  }
+
   updateTotal() {
     const { activeTime, restTime, intervals } = this.state;
     const newTotal = intervals * (activeTime + restTime);
@@ -50,7 +66,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { totalTime, activeTime, restTime, intervals, active } = this.state;
+    const { timeRemaining, activeTime, restTime, intervals, active } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -74,11 +90,22 @@ class App extends React.Component {
             time={intervals.toString()}
           />
           <Timer
-            seconds={totalTime}
+            seconds={timeRemaining}
           />
           <Button
+            title="Start"
             disabled={active}
             onClick={() => this.handleClick()}
+          />
+          <Button
+            title={active ? "Pause" : "Play"}
+            disabled={false}
+            onClick={() => this.handlePause()}
+          />
+          <Button
+            title={"Reset"}
+            disabled={false}
+            onClick={() => this.handleReset()}
           />
         </header>
       </div>
