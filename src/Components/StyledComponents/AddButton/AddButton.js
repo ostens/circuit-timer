@@ -5,7 +5,7 @@ import "./AddButton.css";
 
 const AddButton = () => (
   <div className="addButtonWrapper">
-    <Link to="/form">
+    <Link to="/timers/new">
       <button className="addButton" name="Add Button">+
       </button>
     </Link>

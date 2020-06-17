@@ -15,10 +15,10 @@ class App extends React.Component {
           <h1>Circuit timer app</h1>
           <BrowserRouter>
             <Switch>
-              <Redirect exact from="/" to={"/list"} />
-              <Route exact path={"/form"} component={TimerForm} />
-              <Route exact path={"/page"} component={TimerPage} />
-              <Route exact path={"/list"} component={TimerList} />
+              <Redirect exact from="/" to={"/timers"} />
+              <Route exact path={"/timers"} component={TimerList} />
+              <Route exact path={"/timers/new"} component={TimerForm} />
+              <Route exact path={"/timers/1"} component={TimerPage} />
             </Switch>
           </BrowserRouter>
         </header>

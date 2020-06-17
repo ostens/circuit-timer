@@ -10,7 +10,7 @@ class TimerList extends React.Component {
       <>
         <div>You haven't added any timers yet.</div>
         <div className="controlButtonWrapper">
-          <AddButton url="/form">
+          <AddButton url="/timers/new">
           </AddButton>
         </div>
       </>
