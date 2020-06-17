@@ -1,6 +1,7 @@
 import React from "react";
 
 import Button from "../StyledComponents/Button/Button";
+import BackButton from "../StyledComponents/BackButton/BackButton";
 import InputCard from "../StyledComponents/InputCard/InputCard";
 import "./TimerForm.css";
 
@@ -34,7 +35,9 @@ class TimerForm extends React.Component {
     const { activeTime, restTime, intervals } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
+          <div className="backButtonWrapper">
+            <BackButton url={"/timers"} />
+          </div>
           <div>Add a new timer</div>
           <InputCard
             title="Active time"
@@ -61,7 +64,6 @@ class TimerForm extends React.Component {
               onClick={() => { }}
             />
           </div>
-        </header>
       </div>
     );
   }
