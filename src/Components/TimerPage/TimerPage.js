@@ -1,5 +1,6 @@
 import React from "react";
 
+import NavBar from "../NavBar/NavBar";
 import Timer from "../StyledComponents/Timer/Timer";
 import Button from "../StyledComponents/Button/Button";
 import "./TimerPage.css";
@@ -56,24 +57,22 @@ class TimerPage extends React.Component {
     const { remainingTime, countingDown } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Use timer</h1>
-          <div className="controlButtonWrapper">
-            <Button
-              title={countingDown ? "Pause" : "Play"}
-              disabled={false}
-              onClick={() => this.handlePause()}
-            />
-            <Button
-              title="Reset"
-              disabled={false}
-              onClick={() => this.handleReset()}
-            />
-          </div>
-          <Timer
-            seconds={remainingTime}
+        <NavBar title="Use your timer" />
+        <div className="controlButtonWrapper">
+          <Button
+            title={countingDown ? "Pause" : "Play"}
+            disabled={false}
+            onClick={() => this.handlePause()}
           />
-        </header>
+          <Button
+            title="Reset"
+            disabled={false}
+            onClick={() => this.handleReset()}
+          />
+        </div>
+        <Timer
+          seconds={remainingTime}
+        />
       </div>
     );
   }

@@ -1,16 +1,6 @@
 .backButton {
-  position: absolute;
   width: 48px;
   border: none;
   margin: 8px;
-  background-color: #282c34;
-}
-
-.backButtonWrapper {
-  width: 90%;
-  max-width: 768px;
-  padding: 16px 0;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 32px;
+  background-color: #3f4552;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 
+import NavBar from "../NavBar/NavBar";
 import Button from "../StyledComponents/Button/Button";
 import BackButton from "../StyledComponents/BackButton/BackButton";
 import InputCard from "../StyledComponents/InputCard/InputCard";
@@ -35,8 +36,7 @@ class TimerForm extends React.Component {
     const { activeTime, restTime, intervals } = this.state;
     return (
       <>
-        <BackButton url={"/timers"} />
-        <div>Add a new timer</div>
+        <NavBar title="Add a new timer"/>
         <InputCard
           title="Active time"
           name="activeTime"
