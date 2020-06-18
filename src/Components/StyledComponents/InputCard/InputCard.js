@@ -12,7 +12,7 @@ const InputCard = ({
 }) => {
   return (
     <div className="inputCard">
-      <h3>{title}:</h3>
+      <div className="title">{title}:</div>
       <InputBox
         time={time}
         name={name}

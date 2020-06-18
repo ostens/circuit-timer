@@ -58,6 +58,9 @@ class TimerPage extends React.Component {
     return (
       <div className="App">
         <NavBar title="Use your timer" />
+        <Timer
+          seconds={remainingTime}
+        />
         <div className="controlButtonWrapper">
           <Button
             title={countingDown ? "Pause" : "Play"}
@@ -70,9 +73,7 @@ class TimerPage extends React.Component {
             onClick={() => this.handleReset()}
           />
         </div>
-        <Timer
-          seconds={remainingTime}
-        />
+
       </div>
     );
   }
