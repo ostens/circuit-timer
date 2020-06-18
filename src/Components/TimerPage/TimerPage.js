@@ -9,6 +9,9 @@ class TimerPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      intervals: 5,
+      activeTime: 20,
+      restTime: 10,
       remainingTime: 300,
       countingDown: false,
       active: false,
@@ -55,12 +58,14 @@ class TimerPage extends React.Component {
 
   render() {
     const { remainingTime, countingDown } = this.state;
+    const currentState = "ACTIVE"
     return (
       <div className="App">
         <NavBar title="Use your timer" />
-        <Timer
-          seconds={remainingTime}
-        />
+        <div className="activeState">{currentState}</div>
+        <Timer seconds={remainingTime % 60}></Timer>
+        Interval
+        1/5
         <div className="controlButtonWrapper">
           <Button
             title={countingDown ? "Pause" : "Play"}
@@ -73,7 +78,10 @@ class TimerPage extends React.Component {
             onClick={() => this.handleReset()}
           />
         </div>
-
+        <Timer
+          seconds={remainingTime}
+        />
+        Remaining time
       </div>
     );
   }
