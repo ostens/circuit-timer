@@ -11,8 +11,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Circuit timer app</h1>
           <BrowserRouter>
             <Switch>
               <Redirect exact from="/" to={"/timers"} />
@@ -21,7 +19,6 @@ class App extends React.Component {
               <Route exact path={"/timers/1"} component={TimerPage} />
             </Switch>
           </BrowserRouter>
-        </header>
       </div>
     );
   }
