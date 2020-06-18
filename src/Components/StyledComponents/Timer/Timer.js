@@ -1,16 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { convertTime } from "./TimerUtils";
 import "./Timer.css";
 
 const Timer = ({
   seconds
 }) => {
+
+  const time = convertTime(seconds);
+
   return (
     <div>
       <h2
         className="timer">
-        Time Remaining: {seconds}s
+        {time}
       </h2>
     </div>
   )
