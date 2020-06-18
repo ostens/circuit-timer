@@ -59,6 +59,7 @@ class TimerForm extends React.Component {
             title="Save"
             disabled={false}
             onClick={() => { }}
+            url="/timers/1"
           />
         </div>
       </>
