@@ -57,15 +57,15 @@ class TimerPage extends React.Component {
   }
 
   render() {
-    const { remainingTime, countingDown } = this.state;
-    const currentState = "ACTIVE"
+    const { remainingTime, countingDown, intervals } = this.state;
+    const currentState = remainingTime > 280 ? "ACTIVE" : "REST";
+    const currentInterval = 1;
     return (
       <div className="App">
         <NavBar title="Use your timer" />
         <div className="activeState">{currentState}</div>
         <Timer seconds={remainingTime % 60}></Timer>
-        Interval
-        1/5
+        <div>Interval {`${currentInterval}/${intervals}`}</div>
         <div className="controlButtonWrapper">
           <Button
             title={countingDown ? "Pause" : "Play"}
