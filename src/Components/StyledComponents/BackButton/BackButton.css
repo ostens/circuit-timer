@@ -1,6 +1,6 @@
 .backButton {
-  width: 48px;
+  width: 32px;
   border: none;
-  margin: 8px;
   background-color: #3f4552;
+  margin-right: 10px;
 }

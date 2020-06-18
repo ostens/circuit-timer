@@ -2,7 +2,6 @@ import React from "react";
 
 import NavBar from "../NavBar/NavBar";
 import Button from "../StyledComponents/Button/Button";
-import BackButton from "../StyledComponents/BackButton/BackButton";
 import InputCard from "../StyledComponents/InputCard/InputCard";
 import "./TimerForm.css";
 
