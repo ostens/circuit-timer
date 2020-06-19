@@ -1,8 +1,8 @@
 import React from "react";
 
+import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton";
 import NavBar from "../NavBar/NavBar";
 import Timer from "../StyledComponents/Timer/Timer";
-import Button from "../StyledComponents/Button/Button";
 import "./TimerPage.css";
 
 class TimerPage extends React.Component {
@@ -58,7 +58,7 @@ class TimerPage extends React.Component {
 
   render() {
     const { remainingTime, countingDown, intervals } = this.state;
-    const currentState = remainingTime > 280 ? "ACTIVE" : "REST";
+    const currentState = remainingTime > 295 ? "ACTIVE" : "REST";
     const currentInterval = 1;
     return (
       <div className="App">
@@ -66,22 +66,24 @@ class TimerPage extends React.Component {
         <div className="activeState">{currentState}</div>
         <Timer seconds={remainingTime % 60}></Timer>
         <div>Interval {`${currentInterval}/${intervals}`}</div>
-        <div className="controlButtonWrapper">
-          <Button
-            title={countingDown ? "Pause" : "Play"}
-            disabled={false}
-            onClick={() => this.handlePause()}
-          />
-          <Button
-            title="Reset"
-            disabled={false}
-            onClick={() => this.handleReset()}
-          />
-        </div>
         <Timer
           seconds={remainingTime}
         />
         Remaining time
+        <div className="controlBar">
+          <button className="textButton">
+            Delete
+          </button>
+          <button
+            className="textButton"
+            onClick={() => this.handleReset()}>
+            Reset
+          </button>
+          <PlayPauseButton
+            action={countingDown ? "Pause" : "Play"}
+            onClick={() => this.handlePause()}
+          />
+        </div>
       </div>
     );
   }

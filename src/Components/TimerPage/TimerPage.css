@@ -1,3 +1,26 @@
 .activeState {
   font-size: 48px;
 }
+
+.textButton {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.controlBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  float: left;
+  vertical-align: middle;
+  height: 60px;
+}
