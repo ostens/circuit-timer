@@ -2,6 +2,7 @@ import React from "react";
 
 import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton";
 import NavBar from "../NavBar/NavBar";
+import IntervalTimer from "../StyledComponents/IntervalTimer/IntervalTimer";
 import Timer from "../StyledComponents/Timer/Timer";
 import "./TimerPage.css";
 
@@ -12,6 +13,7 @@ class TimerPage extends React.Component {
       intervals: 5,
       activeTime: 20,
       restTime: 10,
+      totalTime: 300,
       remainingTime: 300,
       countingDown: false,
       active: false,
@@ -58,18 +60,21 @@ class TimerPage extends React.Component {
 
   render() {
     const { remainingTime, countingDown, intervals } = this.state;
-    const currentState = remainingTime > 295 ? "ACTIVE" : "REST";
+    const currentState = remainingTime > 295 ? "Active" : "Rest";
     const currentInterval = 1;
     return (
-      <div className="App">
+      <>
         <NavBar title="Use your timer" />
-        <div className="activeState">{currentState}</div>
-        <Timer seconds={remainingTime % 60}></Timer>
-        <div>Interval {`${currentInterval}/${intervals}`}</div>
+        <IntervalTimer
+          currentInterval={currentInterval}
+          intervals={intervals}
+          state={currentState}
+          seconds={remainingTime - 280}
+        />
         <Timer
           seconds={remainingTime}
         />
-        Remaining time
+        Remaining
         <div className="controlBar">
           <button className="textButton">
             Delete
@@ -84,7 +89,7 @@ class TimerPage extends React.Component {
             onClick={() => this.handlePause()}
           />
         </div>
-      </div>
+      </>
     );
   }
 }

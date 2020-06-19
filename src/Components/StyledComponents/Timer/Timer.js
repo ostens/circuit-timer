@@ -7,15 +7,12 @@ import "./Timer.css";
 const Timer = ({
   seconds
 }) => {
-
   const time = convertTime(seconds);
-
   return (
-    <div>
-      <h2
-        className="timer">
-        {time}
-      </h2>
+    <div
+      className="timer"
+    >
+      {time}
     </div>
   )
 }
