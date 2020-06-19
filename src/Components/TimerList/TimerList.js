@@ -9,12 +9,12 @@ class TimerList extends React.Component {
   render() {
     return (
       <>
-        <NavBar title="Timers" showBackButton={false}/>
+        <NavBar title="Timers" showBackButton={false} />
         <div>You haven't added any timers yet.</div>
-        <div className="controlButtonWrapper">
-          <AddButton url="/timers/new">
-          </AddButton>
-        </div>
+        <AddButton
+          url="/timers/new">
+        </AddButton>
+
       </>
     );
   }

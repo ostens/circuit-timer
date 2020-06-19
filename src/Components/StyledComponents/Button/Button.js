@@ -11,15 +11,17 @@ const Button = ({
   onClick = () => { }
 }) => {
   return (
-    <Link to={url || "#"}>
-      <button
-        className="button"
-        disabled={disabled}
-        onClick={onClick}
-      >
-        {title}
-      </button>
-    </Link>
+    <div className="buttonWrapper">
+      <Link to={url || "#"}>
+        <button
+          className="button"
+          disabled={disabled}
+          onClick={onClick}
+        >
+          {title}
+        </button>
+      </Link>
+    </div>
   )
 }
 

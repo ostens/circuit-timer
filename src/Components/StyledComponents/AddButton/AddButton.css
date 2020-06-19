@@ -1,16 +1,15 @@
 .addButtonWrapper {
   display: flex;
   position: fixed;
-  right: 16px;
   bottom: 16px;
 }
 
 .addButton {
-  height: 48px;
-  width: 48px;
+  height: 56px;
+  width: 56px;
   border: none;
   border-radius: 50%;
-  background-color: green;
+  background-color: rgb(66, 148, 196);
   font-size: 30px;
-  color: aliceblue;
+  color: black;
 }

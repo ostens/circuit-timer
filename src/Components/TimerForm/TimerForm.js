@@ -35,7 +35,7 @@ class TimerForm extends React.Component {
     const { activeTime, restTime, intervals } = this.state;
     return (
       <>
-        <NavBar title="Add a new timer"/>
+        <NavBar title="Add a new timer" />
         <InputCard
           title="Active time"
           name="activeTime"
@@ -54,14 +54,12 @@ class TimerForm extends React.Component {
           updateTime={(name, value) => this.handleUpdate(name, parseInt(value))}
           time={intervals.toString()}
         />
-        <div className="controlButtonWrapper">
-          <Button
-            title="Save"
-            disabled={false}
-            onClick={() => { }}
-            url="/timers/1"
-          />
-        </div>
+        <Button
+          title="Save"
+          disabled={false}
+          onClick={() => { }}
+          url="/timers/1"
+        />
       </>
     );
   }
