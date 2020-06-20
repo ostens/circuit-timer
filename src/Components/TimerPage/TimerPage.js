@@ -4,7 +4,7 @@ import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton
 import NavBar from "../NavBar/NavBar";
 import IntervalTimer from "../StyledComponents/IntervalTimer/IntervalTimer";
 import Timer from "../StyledComponents/Timer/Timer";
-import "./TimerPage.css";
+import "./TimerPage.scss";
 
 class TimerPage extends React.Component {
   constructor(props) {

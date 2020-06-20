@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./AddButton.css";
+import "./AddButton.scss";
 
 const AddButton = () => (
   <div className="addButtonWrapper">

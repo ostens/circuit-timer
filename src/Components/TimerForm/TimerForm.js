@@ -3,7 +3,6 @@ import React from "react";
 import NavBar from "../NavBar/NavBar";
 import Button from "../StyledComponents/Button/Button";
 import InputCard from "../StyledComponents/InputCard/InputCard";
-import "./TimerForm.css";
 
 class TimerForm extends React.Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { convertTime } from "../Timer/TimerUtils";
-import "./IntervalTimer.css";
+import "./IntervalTimer.scss";
 
 const IntervalTimer = ({
   currentInterval,

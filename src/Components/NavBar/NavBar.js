@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import BackButton from "../StyledComponents/BackButton/BackButton";
-import "./NavBar.css";
+import "./NavBar.scss";
 
 const NavBar = ({ title, showBackButton = true }) => (
   <div className="navBar">

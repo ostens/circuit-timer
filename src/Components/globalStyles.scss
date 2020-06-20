@@ -1,0 +1,35 @@
+//fonts
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap");
+
+$source-sans-pro: "Source Sans Pro", sans-serif;
+
+$light: 300;
+$regular: 400;
+$semi-bold: 600;
+$bold: 700;
+
+$font-size-xxs: 12px;
+$font-size-xs: 14px;
+$font-size-s: 16px;
+$font-size-m: 18px;
+$font-size-l: 24px;
+$font-size-xl: 30px;
+$font-size-xxl: 78px;
+
+//colors
+$white: #ffffff;
+$black: #000000;
+$blue: #4294c4;
+$red: #ff6347;
+$green: #90ee90;
+$light-grey: #808080;
+$medium-grey: #3f4552;
+$dark-grey: #282c34;
+
+//shapes
+@mixin circle-icon {
+  height: 56px;
+  width: 56px;
+  border: none;
+  border-radius: 50%;
+}

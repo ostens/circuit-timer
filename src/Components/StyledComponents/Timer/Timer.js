@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { convertTime } from "./TimerUtils";
-import "./Timer.css";
+import "./Timer.scss";
 
 const Timer = ({
   seconds

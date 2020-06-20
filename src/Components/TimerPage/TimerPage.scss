@@ -1,0 +1,25 @@
+@import "../globalStyles.scss";
+
+.controlBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  float: left;
+  vertical-align: middle;
+  height: 60px;
+
+  .textButton {
+    background: none;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    color: $white;
+    font-weight: $bold;
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./InputBox.css"
+import "./InputBox.scss"
 
 const InputBox = ({
   name,

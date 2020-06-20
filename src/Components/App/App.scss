@@ -1,0 +1,21 @@
+@import "../globalStyles.scss";
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  background-color: $dark-grey;
+  color: $white;
+  font-family: $source-sans-pro;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 100vh;
+}

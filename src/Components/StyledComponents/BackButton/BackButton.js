@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import Arrow from "../../Icons/left-arrow.svg";
-import "./BackButton.css";
+import "./BackButton.scss";
 
 const BackButton = ({ url }) => (
     <Link to={url}>

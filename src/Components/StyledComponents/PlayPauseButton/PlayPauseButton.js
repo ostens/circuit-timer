@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Play from "../../Icons/play.svg";
 import Pause from "../../Icons/pause.svg";
-import "./PlayPauseButton.css";
+import "./PlayPauseButton.scss";
 
 const PlayPauseButton = ({
   onClick = () => { },

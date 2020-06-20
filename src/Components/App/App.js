@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import TimerForm from "../TimerForm/TimerForm";
 import TimerList from "../TimerList/TimerList";
 import TimerPage from "../TimerPage/TimerPage";
-import "./App.css";
+import "./App.scss";
 
 class App extends React.Component {
 

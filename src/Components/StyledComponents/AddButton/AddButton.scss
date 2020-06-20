@@ -1,0 +1,14 @@
+@import "../../globalStyles.scss";
+
+.addButtonWrapper {
+  display: flex;
+  position: fixed;
+  bottom: 16px;
+
+  .addButton {
+    @include circle-icon;
+    background-color: $blue;
+    font-size: $font-size-xl;
+    color: $black;
+  }
+}

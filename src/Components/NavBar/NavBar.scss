@@ -1,20 +1,22 @@
+@import "../globalStyles.scss";
+
 .navBar {
   padding-left: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: left;
+  float: left;
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #3f4552;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  float: left;
+  background-color: $medium-grey;
 }
 
 .title {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: $font-size-m;
+  font-weight: $bold;
   text-align: left;
   margin: 5px;
 }

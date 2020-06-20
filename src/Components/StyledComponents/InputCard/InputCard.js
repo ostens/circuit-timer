@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import InputBox from "../InputBox/InputBox";
-import "./InputCard.css"
+import "./InputCard.scss"
 
 const InputCard = ({
   title,

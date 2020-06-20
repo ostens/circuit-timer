@@ -1,0 +1,13 @@
+@import "../../globalStyles.scss";
+
+.input {
+  height: 36px;
+  width: 96px;
+  border-radius: 4px;
+  margin: 8px;
+  outline: none;
+  text-indent: 10px;
+  font-weight: $regular;
+  font-size: $font-size-s;
+  color: $black;
+}
