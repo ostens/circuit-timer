@@ -10,13 +10,13 @@ class TimerPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      totalTime: 150,
+      remainingTime: 150,
+      countingDown: false,
+      active: false,
       intervals: 5,
       activeTime: 20,
       restTime: 10,
-      totalTime: 300,
-      remainingTime: 300,
-      countingDown: false,
-      active: false,
     }
     this.countDown = this.countDown.bind(this);
   }
@@ -58,10 +58,19 @@ class TimerPage extends React.Component {
     })
   }
 
+  calculateInterval(remainingTime) {
+    const { activeTime, restTime, totalTime } = this.state;
+    const intervalTime = activeTime + restTime;
+    const elapsedTime = totalTime - remainingTime;
+    return Math.floor( elapsedTime / intervalTime + 1);
+  }
+
   render() {
-    const { remainingTime, countingDown, intervals } = this.state;
-    const currentState = remainingTime > 295 ? "Active" : "Rest";
-    const currentInterval = 1;
+    const { remainingTime, countingDown, intervals, activeTime, restTime } = this.state;
+    const currentInterval = this.calculateInterval(remainingTime);
+    const intervalTime = activeTime + restTime;
+    const remainingIntervalTime = remainingTime % intervalTime || intervalTime;
+    const currentState = remainingIntervalTime > restTime ? "Active" : "Rest";
     return (
       <>
         <NavBar title="Use your timer" />
@@ -69,7 +78,7 @@ class TimerPage extends React.Component {
           currentInterval={currentInterval}
           intervals={intervals}
           state={currentState}
-          seconds={remainingTime - 280}
+          seconds={remainingIntervalTime}
         />
         <Timer
           seconds={remainingTime}
