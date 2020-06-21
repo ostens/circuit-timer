@@ -7,13 +7,13 @@ import "./NavBar.scss";
 const NavBar = ({ title, showBackButton = true }) => (
   <div className="navBar">
     {showBackButton && <BackButton url="/timers" />}
-    <div class="title">{title}</div>
+    <div className="title">{title}</div>
   </div>
 );
 
 NavBar.propTypes = {
   title: PropTypes.string.isRequired,
-  showBackButton: PropTypes.bool.isRequired
+  showBackButton: PropTypes.bool
 };
 
 export default NavBar;
