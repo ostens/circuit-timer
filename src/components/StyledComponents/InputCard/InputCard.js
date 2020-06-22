@@ -1,22 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import InputBox from "../InputBox/InputBox";
 import "./InputCard.scss"
 
 const InputCard = ({
+  name = "",
   title,
-  updateTime,
-  name,
-  time
+  type = "number",
+  onChange = () => { },
 }) => {
   return (
     <div className="inputCard">
       <div className="title">{title}:</div>
-      <InputBox
-        time={time}
+      <input
+        className="input"
         name={name}
-        updateTime={updateTime} />
+        type={type}
+        onChange={onChange}
+      />
     </div>
   )
 }
@@ -24,8 +25,8 @@ const InputCard = ({
 InputCard.propTypes = {
   name: PropTypes.string,
   title: PropTypes.string,
-  time: PropTypes.string,
-  updateTime: PropTypes.func.isRequired
+  type: PropTypes.string,
+  onChange: PropTypes.func,
 }
 
 export default InputCard;
