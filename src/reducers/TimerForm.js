@@ -2,9 +2,9 @@
 import { SUBMIT_TIMER } from "../actions/TimerForm";
 
 const INITIAL_STATE = {
-  activeTime: "",
-  restTime: "",
-  intervals: ""
+  activeTime: 20,
+  restTime: 10,
+  intervals: 10
 };
 
 export default (state = INITIAL_STATE, action) => {

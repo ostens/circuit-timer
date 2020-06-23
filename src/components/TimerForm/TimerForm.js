@@ -6,9 +6,9 @@ import Button from "../StyledComponents/Button/Button";
 import InputCard from "../StyledComponents/InputCard/InputCard";
 
 const TimerForm = ({ submitTimer }) => {
-  const [activeTime, setActiveTime] = useState("");
-  const [restTime, setRestTime] = useState("");
-  const [intervals, setIntervals] = useState("");
+  const [activeTime, setActiveTime] = useState(20);
+  const [restTime, setRestTime] = useState(10);
+  const [intervals, setIntervals] = useState(10);
 
   const handleSubmitTimer = () => {
     submitTimer(activeTime, restTime, intervals);
@@ -20,17 +20,17 @@ const TimerForm = ({ submitTimer }) => {
       <InputCard
         title="Active time"
         name="activeTime"
-        onChange={e => setActiveTime(e.target.value)}
+        onChange={e => setActiveTime(parseInt(e.target.value))}
       />
       <InputCard
         title="Rest time"
         name="restTime"
-        onChange={e => setRestTime(e.target.value)}
+        onChange={e => setRestTime(parseInt(e.target.value))}
       />
       <InputCard
         title="Intervals"
         name="intervals"
-        onChange={e => setIntervals(e.target.value)}
+        onChange={e => setIntervals(parseInt(e.target.value))}
       />
       <Button
         title="Save"
