@@ -1,0 +1,12 @@
+@import "../../globalStyles.scss";
+
+.timerCard {
+  width: 80%;
+  display: inline-block;
+  text-align: left;
+  background-color: $white;
+  box-shadow: $light-grey;
+  color: $black;
+  margin: 15px;
+  padding: 5px;
+}

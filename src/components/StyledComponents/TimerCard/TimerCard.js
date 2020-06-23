@@ -8,9 +8,9 @@ const TimerCard = ({
 
   return (
     <div className="timerCard">
-      <div>Active time: {activeTime}s</div>
-      <div>Rest time: {restTime}s</div>
-      <div>Intervals: {intervals}s</div>
+      <div className="text">Active time: {activeTime}s</div>
+      <div className="text">Rest time: {restTime}s</div>
+      <div className="text">Intervals: {intervals}</div>
     </div>
   )
 }
