@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import TimerForm from "../TimerForm/TimerFormContainer";
-import TimerList from "../TimerList/TimerList";
+import TimerList from "../TimerList/TimerListContainer";
 import TimerPage from "../TimerPage/TimerPageContainer";
 import "./App.scss";
 
