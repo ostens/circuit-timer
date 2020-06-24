@@ -21,7 +21,8 @@ const TimerForm = ({ submitTimer }) => {
       <InputCard
         title="Timer name"
         name="timerName"
-        onChange={e => setTimerName(parseInt(e.target.value))}
+        type="string"
+        onChange={e => setTimerName(e.target.value)}
       />
       <InputCard
         title="Active time"
