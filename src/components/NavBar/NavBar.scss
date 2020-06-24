@@ -1,15 +1,12 @@
 @import "../globalStyles.scss";
 
 .navBar {
-  padding-left: 20px;
   padding-top: 12px;
   padding-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: left;
   float: left;
-  position: fixed;
-  top: 0;
   width: 100%;
   background-color: $medium-grey;
 }
@@ -19,4 +16,5 @@
   font-weight: $bold;
   text-align: left;
   margin: 5px;
+  margin-left: 15px;
 }
