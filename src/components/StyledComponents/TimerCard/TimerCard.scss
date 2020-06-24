@@ -4,48 +4,57 @@
   display: flex;
   flex-direction: row;
   width: 80%;
-  background-color: $white;
   margin: 15px;
   padding: 5px;
   align-items: center;
-  border-bottom-width: 5px;
+  border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-bottom-color: red;
+  border-bottom-color: $light-grey;
 
   .image {
     height: 50px;
   }
 
+  .total {
+    font-size: $font-size-xxl;
+  }
+
   .content {
     display: inline-block;
     text-align: left;
-    color: $black;
+    color: $white;
 
     .title {
       font-size: $font-size-m;
     }
 
-    .arrow {
-      border: solid black;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 3px;
-      margin-right: 5px;
-      margin-left: 5px;
-      &.up {
-        transform: rotate(-135deg);
-        -webkit-transform: rotate(-135deg);
-        border-color: red;
-      }
-      &.down {
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        border-color: green;
-      }
-    }
-
     .text {
-      margin-left: 10px;
+      margin-left: 5px;
+      font-weight: $regular;
+
+      .arrow {
+        border: solid;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-right: 5px;
+        margin-left: 5px;
+        &.up {
+          transform: rotate(-135deg);
+          -webkit-transform: rotate(-135deg);
+          border-color: $red;
+        }
+        &.down {
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          border-color: $green;
+        }
+      }
+
+      .dividor {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
     }
   }
 }

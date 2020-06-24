@@ -1,21 +1,19 @@
 import React from "react";
 
-import Weight from "../../Icons/weight.svg"
-
+import { calculateTotal, convertTime } from "../Timer/TimerUtils"
 import "./TimerCard.scss";
 
 const TimerCard = ({
   timer
 }) => {
   const { timerName, activeTime, restTime, intervals } = timer;
+  const totalTime = convertTime(calculateTotal(activeTime, restTime, intervals));
 
   return (
     <div className="timerCard">
-      <img
-        className="image"
-        src={Weight}
-        alt="Hourglass"
-      />
+      <div className="total">
+        {totalTime}
+      </div>
       <div className="content">
         <div className="title">{timerName}</div>
         <div className="text">
@@ -23,6 +21,7 @@ const TimerCard = ({
             className="arrow up"
           />
           {activeTime}s
+          <i className="dividor">•</i>
           <i
             className="arrow down"
           />

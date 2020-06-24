@@ -8,3 +8,7 @@ export const convertTime = (totalSeconds) => {
   }
   return totalSeconds < 0 ? "0:00" : `${minutes}:${convertSeconds(totalSeconds)}`;
 }
+
+export const calculateTotal = (activeTime, restTime, intervals) => {
+  return (activeTime + restTime) * intervals;
+}

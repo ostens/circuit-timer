@@ -4,6 +4,7 @@ import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton
 import NavBar from "../NavBar/NavBar";
 import IntervalTimer from "../StyledComponents/IntervalTimer/IntervalTimer";
 import Timer from "../StyledComponents/Timer/Timer";
+import { calculateTotal } from "../StyledComponents/Timer/TimerUtils"
 import "./TimerPage.scss";
 
 const TimerPage = ({
@@ -11,10 +12,10 @@ const TimerPage = ({
   activeTime = "",
   restTime = "",
 }) => {
-  const [remainingTime, setRemainingTime] = useState((activeTime + restTime) * intervals);
+  const [remainingTime, setRemainingTime] = useState(calculateTotal(activeTime, restTime, intervals));
   const [isActive, setIsActive] = useState(false);
 
-  const totalTime = (activeTime + restTime) * intervals;
+  const totalTime = calculateTotal(activeTime, restTime, intervals);
   const intervalTime = activeTime + restTime;
   const remainingIntervalTime = remainingTime % intervalTime || intervalTime;
   const currentInterval = Math.floor((totalTime - remainingTime) / intervalTime) + 1;
