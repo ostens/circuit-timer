@@ -6,17 +6,23 @@ import Button from "../StyledComponents/Button/Button";
 import InputCard from "../StyledComponents/InputCard/InputCard";
 
 const TimerForm = ({ submitTimer }) => {
+  const [timerName, setTimerName] = useState("");
   const [activeTime, setActiveTime] = useState(20);
   const [restTime, setRestTime] = useState(10);
   const [intervals, setIntervals] = useState(10);
 
   const handleSubmitTimer = () => {
-    submitTimer(activeTime, restTime, intervals);
+    submitTimer(timerName, activeTime, restTime, intervals);
   };
 
   return (
     <>
       <NavBar title="Add a new timer" />
+      <InputCard
+        title="Timer name"
+        name="timerName"
+        onChange={e => setTimerName(parseInt(e.target.value))}
+      />
       <InputCard
         title="Active time"
         name="activeTime"
