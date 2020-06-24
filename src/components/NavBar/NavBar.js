@@ -1,19 +1,30 @@
 import React from "react";
+import { withRouter } from "react-router";
 import PropTypes from "prop-types";
 
+import {
+  showBackButton,
+  chooseTitle
+} from "./NavBarUtils";
 import BackButton from "../StyledComponents/BackButton/BackButton";
 import "./NavBar.scss";
 
-const NavBar = ({ title, showBackButton = true }) => (
-  <div className="navBar">
-    {showBackButton && <BackButton url="/timers" />}
-    <div className="title">{title}</div>
-  </div>
-);
+const NavBar = ({ location }) => {
+  const currentPath = location.pathname;
+  const backButtonShowing = showBackButton(currentPath);
+  const title = chooseTitle(currentPath);
+
+  return (
+    <div className="navBar">
+      {backButtonShowing && <BackButton url="/timers" />}
+      <div className="title">{title}</div>
+    </div>
+  )
+}
 
 NavBar.propTypes = {
-  title: PropTypes.string.isRequired,
-  showBackButton: PropTypes.bool
+  location: PropTypes.object.isRequired,
 };
 
-export default NavBar;
+const RoutedNavBar = withRouter(NavBar);
+export default RoutedNavBar;

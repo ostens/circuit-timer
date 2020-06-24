@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
+import NavBar from "../NavBar/NavBar";
 import TimerForm from "../TimerForm/TimerFormContainer";
 import TimerList from "../TimerList/TimerListContainer";
 import TimerPage from "../TimerPage/TimerPageContainer";
@@ -12,6 +13,7 @@ class App extends React.Component {
     return (
       <div className="App">
           <BrowserRouter>
+            <NavBar />
             <Switch>
               <Redirect exact from="/" to={"/timers"} />
               <Route exact path={"/timers"} component={TimerList} />

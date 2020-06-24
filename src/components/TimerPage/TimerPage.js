@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton";
-import NavBar from "../NavBar/NavBar";
 import IntervalTimer from "../StyledComponents/IntervalTimer/IntervalTimer";
 import Timer from "../StyledComponents/Timer/Timer";
 import { calculateTotal } from "../StyledComponents/Timer/TimerUtils"
@@ -43,7 +42,6 @@ const TimerPage = ({
 
   return (
     <>
-      <NavBar title="Use your timer" />
       <IntervalTimer
         currentInterval={currentInterval}
         intervals={intervals}

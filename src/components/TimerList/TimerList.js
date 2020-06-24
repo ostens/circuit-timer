@@ -1,6 +1,5 @@
 import React from "react";
 
-import NavBar from "../NavBar/NavBar";
 import TimerCard from "../StyledComponents/TimerCard/TimerCard";
 import AddButton from "../StyledComponents/AddButton/AddButton";
 import "./TimerList.scss";
@@ -10,7 +9,6 @@ const TimerList = ({
 }) => {
   return (
     <>
-      <NavBar title="Timers" showBackButton={false} />
       <div className="timerList">
         {timers.map(timer => {
           return (

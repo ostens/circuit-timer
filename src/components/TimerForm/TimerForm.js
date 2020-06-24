@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import NavBar from "../NavBar/NavBar";
 import Button from "../StyledComponents/Button/Button";
 import InputCard from "../StyledComponents/InputCard/InputCard";
 
@@ -17,7 +16,6 @@ const TimerForm = ({ submitTimer }) => {
 
   return (
     <>
-      <NavBar title="Add a new timer" />
       <InputCard
         title="Timer name"
         name="timerName"
