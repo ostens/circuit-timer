@@ -1,4 +1,7 @@
 import React from "react";
+
+import Weight from "../../Icons/weight.svg"
+
 import "./TimerCard.scss";
 
 const TimerCard = ({
@@ -8,10 +11,25 @@ const TimerCard = ({
 
   return (
     <div className="timerCard">
-      <div className="text">Name: {timerName}</div>
-      <div className="text">Active time: {activeTime}s</div>
-      <div className="text">Rest time: {restTime}s</div>
-      <div className="text">Intervals: {intervals}</div>
+      <img
+        className="image"
+        src={Weight}
+        alt="Hourglass"
+      />
+      <div className="content">
+        <div className="title">{timerName}</div>
+        <div className="text">
+          <i
+            className="arrow up"
+          />
+          {activeTime}s
+          <i
+            className="arrow down"
+          />
+          {restTime}s
+      </div>
+        <div className="text">{intervals} intervals </div>
+      </div>
     </div>
   )
 }
