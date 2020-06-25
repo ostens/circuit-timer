@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import "./Button.scss"
-import { Link } from "react-router-dom";
+import { path } from "../../../constants";
 
 const Button = ({
   title,
@@ -10,7 +11,7 @@ const Button = ({
 }) => {
   return (
       <div className="buttonWrapper">
-      <Link to="/timers/1">
+      <Link to={path.page}>
         <button
           className="button"
           onClick={onClick}

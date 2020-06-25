@@ -6,6 +6,7 @@ import {
   showBackButton,
   chooseTitle
 } from "./NavBarUtils";
+import { path } from "../../constants";
 import BackButton from "../StyledComponents/BackButton/BackButton";
 import "./NavBar.scss";
 
@@ -16,7 +17,7 @@ const NavBar = ({ location }) => {
 
   return (
     <div className="navBar">
-      {backButtonShowing && <BackButton url="/timers" />}
+      {backButtonShowing && <BackButton url={path.list} />}
       <div className="title">{title}</div>
     </div>
   )

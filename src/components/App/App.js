@@ -5,6 +5,7 @@ import NavBar from "../NavBar/NavBar";
 import TimerForm from "../TimerForm/TimerFormContainer";
 import TimerList from "../TimerList/TimerListContainer";
 import TimerPage from "../TimerPage/TimerPageContainer";
+import { path } from "../../constants";
 import "./App.scss";
 
 class App extends React.Component {
@@ -15,10 +16,10 @@ class App extends React.Component {
           <BrowserRouter>
             <NavBar />
             <Switch>
-              <Redirect exact from="/" to={"/timers"} />
-              <Route exact path={"/timers"} component={TimerList} />
-              <Route exact path={"/timers/new"} component={TimerForm} />
-              <Route exact path={"/timers/1"} component={TimerPage} />
+              <Redirect exact from="/" to={path.list} />
+              <Route exact path={path.list} component={TimerList} />
+              <Route exact path={path.form} component={TimerForm} />
+              <Route exact path={path.page} component={TimerPage} />
             </Switch>
           </BrowserRouter>
       </div>

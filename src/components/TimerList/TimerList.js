@@ -2,6 +2,7 @@ import React from "react";
 
 import TimerCard from "../StyledComponents/TimerCard/TimerCard";
 import AddButton from "../StyledComponents/AddButton/AddButton";
+import { path } from "../../constants";
 import "./TimerList.scss";
 
 const TimerList = ({
@@ -20,7 +21,7 @@ const TimerList = ({
       </div>
       <div>{timers.length ? "" : "No timers to show"}</div>
       <AddButton
-        url="/timers/new">
+        url={path.form}>
       </AddButton>
     </>
   );
