@@ -14,6 +14,8 @@ const TimerList = ({
         {timers.map(timer => {
           return (
             <TimerCard
+              key={timers.indexOf(timer)}
+              id={timers.indexOf(timer)}
               timer={timer}
             />
           )

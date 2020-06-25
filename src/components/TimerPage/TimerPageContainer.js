@@ -2,15 +2,16 @@ import { connect } from "react-redux";
 
 import TimerPage from "./TimerPage";
 import {
-  getActiveTime,
-  getRestTime,
-  getIntervals,
-} from "../../selectors/TimerPage.js";
+  getActiveTimer,
+} from "../../selectors/TimerPage";
+import { fetchTimer } from "../../actions/TimerPage";
 
-const mapStateToProps = state => ({
-  activeTime: getActiveTime(state),
-  restTime: getRestTime(state),
-  intervals: getIntervals(state)
+const mapStateToProps = (state) => ({
+  timer: getActiveTimer(state)
 });
 
-export default connect(mapStateToProps)(TimerPage);
+const mapDispatchToProps = {
+  fetchTimer
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TimerPage);

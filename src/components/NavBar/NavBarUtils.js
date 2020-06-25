@@ -1,7 +1,10 @@
 import { path } from "../../constants";
 
-export const showBackButton = (url) =>
-  url === path.form || url === path.page;
+const pathWithIdRegex = url => new RegExp(`${url}\\/\\d+/?$`);
+const pages = pathWithIdRegex(path.list);
+
+export const showBackButton = (url) => 
+  url === path.form || pages.test(url);
 
 export const chooseTitle = (url) => {
   switch (url) {

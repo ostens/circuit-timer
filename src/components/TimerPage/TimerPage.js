@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton";
 import IntervalTimer from "../StyledComponents/IntervalTimer/IntervalTimer";
@@ -6,11 +7,15 @@ import Timer from "../StyledComponents/Timer/Timer";
 import { calculateTotal } from "../StyledComponents/Timer/TimerUtils"
 import "./TimerPage.scss";
 
-const TimerPage = ({
-  intervals = "",
-  activeTime = "",
-  restTime = "",
-}) => {
+const TimerPage = ({ timer, fetchTimer }) => {
+  const { id: idString } = useParams();
+  const id = parseInt(idString, 10);
+
+  useEffect(() => {
+    fetchTimer(id);
+  }, [fetchTimer, id]);
+
+  const { intervals, activeTime, restTime } = timer;
   const [remainingTime, setRemainingTime] = useState(calculateTotal(activeTime, restTime, intervals));
   const [isActive, setIsActive] = useState(false);
 
@@ -51,7 +56,7 @@ const TimerPage = ({
       <Timer
         seconds={remainingTime}
       />
-        Remaining
+      Remaining
       <div className="controlBar">
         <button className="textButton">
           Delete
@@ -68,7 +73,7 @@ const TimerPage = ({
         />
       </div>
     </>
-  );  
+  );
 }
 
 export default TimerPage;

@@ -19,7 +19,7 @@ class App extends React.Component {
               <Redirect exact from="/" to={path.list} />
               <Route exact path={path.list} component={TimerList} />
               <Route exact path={path.form} component={TimerForm} />
-              <Route exact path={path.page} component={TimerPage} />
+              <Route exact path={`${path.list}/:id`} component={TimerPage} />
             </Switch>
           </BrowserRouter>
       </div>
