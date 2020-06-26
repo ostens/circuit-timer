@@ -15,6 +15,7 @@ const InputTextCard = ({
         className="input"
         name={name}
         type="string"
+        autoComplete="off"
         onChange={onChange}
       />
     </div>
