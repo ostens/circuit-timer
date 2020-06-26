@@ -5,16 +5,16 @@ import "./InputTextCard.scss"
 
 const InputTextCard = ({
   name = "",
-  title,
+  placeholder,
   onChange = () => { },
 }) => {
   return (
-    <div className="inputCard">
-      <div className="title">{title}:</div>
+    <div className="inputTextCard">
       <input
         className="input"
         name={name}
         type="string"
+        placeholder={placeholder}
         autoComplete="off"
         onChange={onChange}
       />
@@ -24,7 +24,7 @@ const InputTextCard = ({
 
 InputTextCard.propTypes = {
   name: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 }
 

@@ -5,17 +5,26 @@ import "./InputNumberCard.scss"
 
 const InputNumberCard = ({
   title,
-  onClick = () => { },
+  onChange = () => { },
   value,
-  increments
+  min,
+  max,
+  step
 }) => {
   return (
-    <>
-      <div>{title}: {value}</div>
-      <div>{increments.map(increment => {
-        return <button id={increment} key={increment} onClick={onClick}>{increment}</button>
-      })}</div>
-    </>
+    <div className="inputNumberCard">
+      <div className="title">{title}</div>
+      <div className="value">{`${value} ${title === "Intervals" ? "" : "s"}`}</div>
+        <input
+          className="slider"
+          type="range"
+          value={value}
+          min={min}
+          max={max}
+          step={step}
+          onChange={onChange}>
+        </input>
+    </div>
   )
 }
 
@@ -23,7 +32,9 @@ InputNumberCard.propTypes = {
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   value: PropTypes.number.isRequired,
-  increments: PropTypes.array.isRequired
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  step: PropTypes.number.isRequired
 }
 
 export default InputNumberCard;

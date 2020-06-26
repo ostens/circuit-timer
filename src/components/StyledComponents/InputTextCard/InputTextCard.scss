@@ -1,9 +1,9 @@
 @import "../../globalStyles.scss";
 
-.inputCard {
+.inputTextCard {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: left;
   width: 100%;
   padding: 16px 0;
 
@@ -14,13 +14,16 @@
 
   .input {
     height: 36px;
-    width: 96px;
-    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid;
+    display: flex;
+    width: 100%;
     margin: 8px;
     outline: none;
+    background: none;
     text-indent: 10px;
     font-weight: $regular;
-    font-size: $font-size-s;
-    color: $black;
+    font-size: $font-size-m;
+    color: $white;
   }
 }
