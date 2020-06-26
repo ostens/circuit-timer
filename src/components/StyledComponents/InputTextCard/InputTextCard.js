@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./InputCard.scss"
+import "./InputTextCard.scss"
 
-const InputCard = ({
+const InputTextCard = ({
   name = "",
   title,
-  type = "number",
   onChange = () => { },
 }) => {
   return (
@@ -15,18 +14,17 @@ const InputCard = ({
       <input
         className="input"
         name={name}
-        type={type}
+        type="string"
         onChange={onChange}
       />
     </div>
   )
 }
 
-InputCard.propTypes = {
+InputTextCard.propTypes = {
   name: PropTypes.string,
   title: PropTypes.string,
-  type: PropTypes.string,
   onChange: PropTypes.func,
 }
 
-export default InputCard;
+export default InputTextCard;

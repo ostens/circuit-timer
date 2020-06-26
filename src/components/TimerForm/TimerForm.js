@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import Button from "../StyledComponents/Button/Button";
-import InputCard from "../StyledComponents/InputCard/InputCard";
+import InputTextCard from "../StyledComponents/InputTextCard/InputTextCard";
+import InputNumberCard from "../StyledComponents/InputNumberCard/InputNumberCard";
 
 const TimerForm = ({ submitTimer }) => {
   const [timerName, setTimerName] = useState("");
@@ -14,29 +15,34 @@ const TimerForm = ({ submitTimer }) => {
     submitTimer(timerName, activeTime, restTime, intervals);
   };
 
+  const TIME_INCREMENTS = [-5, 5];
+  const INTERVAL_INCREMENTS = [-1, 1];
+
   return (
     <>
-      <InputCard
+      <InputTextCard
         title="Timer name"
         name="timerName"
-        type="string"
         onChange={e => setTimerName(e.target.value)}
       />
-      <InputCard
+      <InputNumberCard
         title="Active time"
-        name="activeTime"
-        onChange={e => setActiveTime(parseInt(e.target.value))}
+        value={activeTime}
+        increments={TIME_INCREMENTS}
+        onClick={(e) => setActiveTime(activeTime + parseInt(e.currentTarget.id))}
       />
-      <InputCard
+      <InputNumberCard
         title="Rest time"
-        name="restTime"
-        onChange={e => setRestTime(parseInt(e.target.value))}
+        value={restTime}
+        increments={TIME_INCREMENTS}
+        onClick={(e) => setRestTime(restTime + parseInt(e.currentTarget.id))}
       />
-      <InputCard
+      <InputNumberCard
         title="Intervals"
-        name="intervals"
-        onChange={e => setIntervals(parseInt(e.target.value))}
-      />
+        value={intervals}
+        increments={INTERVAL_INCREMENTS}
+        onClick={(e) => setIntervals(intervals + parseInt(e.currentTarget.id))}
+      /> 
       <Button
         title="Save"
         onClick={handleSubmitTimer}
