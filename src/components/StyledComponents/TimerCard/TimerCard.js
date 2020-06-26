@@ -45,6 +45,8 @@ const TimerCard = ({
 }
 
 TimerCard.propTypes = {
+  timer: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
 };
 

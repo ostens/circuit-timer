@@ -22,9 +22,9 @@ const InputTextCard = ({
 }
 
 InputTextCard.propTypes = {
-  name: PropTypes.string,
-  title: PropTypes.string,
-  onChange: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 export default InputTextCard;

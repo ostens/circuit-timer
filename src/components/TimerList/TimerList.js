@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import TimerCard from "../StyledComponents/TimerCard/TimerCard";
 import AddButton from "../StyledComponents/AddButton/AddButton";
@@ -28,5 +29,9 @@ const TimerList = ({
     </>
   );
 }
+
+TimerList.propTypes = {
+  timers: PropTypes.array.isRequired,
+};
 
 export default TimerList;

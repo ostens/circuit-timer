@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 
 import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton";
@@ -74,6 +75,11 @@ const TimerPage = ({ timer, fetchTimer }) => {
       </div>
     </>
   );
+}
+
+TimerPage.propTypes = {
+  timer: PropTypes.object.isRequired,
+  fetchTimer: PropTypes.func.isRequired
 }
 
 export default TimerPage;

@@ -26,6 +26,8 @@ const IntervalTimer = ({
 }
 
 IntervalTimer.propTypes = {
+  currentInterval: PropTypes.number.isRequired,
+  intervals: PropTypes.number.isRequired,
   seconds: PropTypes.number.isRequired,
   state: PropTypes.string.isRequired
 }

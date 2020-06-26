@@ -20,10 +20,10 @@ const InputNumberCard = ({
 }
 
 InputNumberCard.propTypes = {
-  title: PropTypes.string,
-  onClick: PropTypes.func,
-  value: PropTypes.number,
-  increments: PropTypes.array
+  title: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
+  increments: PropTypes.array.isRequired
 }
 
 export default InputNumberCard;
