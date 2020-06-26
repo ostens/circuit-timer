@@ -1,1 +1,1 @@
-export const getTimers = state => state.timerForm.timers;
+export const getTimers = state => state.timerReducer.timers;

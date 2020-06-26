@@ -1,1 +1,1 @@
-export const getActiveTimer = state => state.timerPage.timer;
+export const getActiveTimer = state => state.timerReducer.timer;

@@ -1,11 +1,9 @@
 import { combineReducers } from "redux";
 
 import timerForm from "./TimerForm";
-import timerPage from "./TimerPage";
 
 const rootReducer = combineReducers({
-    timerForm,
-    timerPage
+    timerReducer: timerForm
   });
 
 export default rootReducer;
