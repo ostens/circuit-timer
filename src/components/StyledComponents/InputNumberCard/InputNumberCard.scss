@@ -1,19 +1,16 @@
 @import "../../globalStyles.scss";
 
 .inputNumberCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   width: 100%;
   padding: 16px 0;
 
-  .title {
+  .inputTitle {
     font-size: $font-size-m;
   }
 
-  .value {
+  .inputValue {
     font-size: $font-size-l;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .slider {
@@ -21,7 +18,6 @@
     align-self: center;
     width: 80%;
     height: 5px;
-    border-radius: 5px; 
     background-color: $light-grey;
     opacity: 0.7;
   }

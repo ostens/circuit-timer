@@ -13,17 +13,17 @@ const InputNumberCard = ({
 }) => {
   return (
     <div className="inputNumberCard">
-      <div className="title">{title}</div>
-      <div className="value">{`${value} ${title === "Intervals" ? "" : "s"}`}</div>
-        <input
-          className="slider"
-          type="range"
-          value={value}
-          min={min}
-          max={max}
-          step={step}
-          onChange={onChange}>
-        </input>
+      <div className="inputTitle">{title}</div>
+      <div className="inputValue">{`${value}${title === "Intervals" ? "" : "s"}`}</div>
+      <input
+        className="slider"
+        type="range"
+        value={value}
+        min={min}
+        max={max}
+        step={step}
+        onChange={onChange}>
+      </input>
     </div>
   )
 }
