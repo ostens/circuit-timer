@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { convertTime } from "./TimerUtils";
-import "./Timer.scss";
+import { convertTime } from "./TimerCounterUtils";
+import "./TimerCounter.scss";
 
-const Timer = ({
+const TimerCounter = ({
   seconds
 }) => {
   const time = convertTime(seconds);
@@ -17,8 +17,8 @@ const Timer = ({
   )
 }
 
-Timer.propTypes = {
+TimerCounter.propTypes = {
   seconds: PropTypes.number.isRequired,
 }
 
-export default Timer;
+export default TimerCounter;

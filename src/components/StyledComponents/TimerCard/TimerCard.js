@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 
-import { calculateTotal, convertTime } from "../Timer/TimerUtils";
+import { calculateTotal, convertTime } from "../TimerCounter/TimerCounterUtils";
 import { path } from "../../../constants";
 import "./TimerCard.scss";
 

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { convertTime } from "../Timer/TimerUtils";
-import "./IntervalTimer.scss";
+import { convertTime } from "../TimerCounter/TimerCounterUtils";
+import "./IntervalCounter.scss";
 
-const IntervalTimer = ({
+const IntervalCounter = ({
   currentInterval,
   intervals,
   seconds,
@@ -25,11 +25,11 @@ const IntervalTimer = ({
   )
 }
 
-IntervalTimer.propTypes = {
+IntervalCounter.propTypes = {
   currentInterval: PropTypes.number.isRequired,
   intervals: PropTypes.number.isRequired,
   seconds: PropTypes.number.isRequired,
   state: PropTypes.string.isRequired
 }
 
-export default IntervalTimer;
+export default IntervalCounter;

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 
 import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton";
-import IntervalTimer from "../StyledComponents/IntervalTimer/IntervalTimer";
-import Timer from "../StyledComponents/Timer/Timer";
-import { calculateTotal } from "../StyledComponents/Timer/TimerUtils"
+import IntervalCounter from "../StyledComponents/IntervalCounter/IntervalCounter";
+import TimerCounter from "../StyledComponents/TimerCounter/TimerCounter";
+import { calculateTotal } from "../StyledComponents/TimerCounter/TimerCounterUtils"
 import "./TimerPage.scss";
 
 const TimerPage = ({ timer, fetchTimer }) => {
@@ -48,13 +48,13 @@ const TimerPage = ({ timer, fetchTimer }) => {
 
   return (
     <>
-      <IntervalTimer
+      <IntervalCounter
         currentInterval={currentInterval}
         intervals={intervals}
         state={remainingIntervalTime > restTime ? "Active" : "Rest"}
         seconds={remainingIntervalTime}
       />
-      <Timer
+      <TimerCounter
         seconds={remainingTime}
       />
       Remaining
