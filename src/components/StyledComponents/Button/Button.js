@@ -11,7 +11,7 @@ const Button = ({
 }) => {
   return (
       <div className="buttonWrapper">
-      <Link to={path.page}>
+      <Link to={path.list}>
         <button
           className="button"
           onClick={onClick}
