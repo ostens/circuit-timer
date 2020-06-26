@@ -15,6 +15,6 @@ export const chooseTitle = (url) => {
     case path.list:
       return "Timers";
     default:
-      return "Timers"
+      return "Use your timer"
   }
 }
