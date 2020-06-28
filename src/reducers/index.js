@@ -1,6 +1,4 @@
-
-import { SUBMIT_TIMER } from "../actions/TimerForm";
-import { FETCH_TIMER } from "../actions/TimerPage";
+import { SUBMIT_TIMER } from "../actions/index";
 
 const initialTimer = {
   timerName: "Default",
@@ -10,8 +8,7 @@ const initialTimer = {
 };
 
 const INITIAL_STATE = {
-  timers: [initialTimer],
-  timer: initialTimer
+  timers: [initialTimer]
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -25,11 +22,6 @@ export default (state = INITIAL_STATE, action) => {
           restTime: action.restTime,
           intervals: action.intervals
         })
-      };
-    case FETCH_TIMER:
-      return {
-        ...state,
-        timer: state.timers[action.id] || state.timer
       };
     default:
       return state;

@@ -20,7 +20,7 @@ const TimerForm = ({ submitTimer }) => {
       <InputTextCard
         placeholder="Title your timer"
         name="timerName"
-        onChange={e => setTimerName(e.target.value)}
+        onChange={e => setTimerName(parseInt(e.target.value))}
       />
       <InputNumberCard
         title="Active time"
@@ -28,7 +28,7 @@ const TimerForm = ({ submitTimer }) => {
         min={5}
         max={60}
         step={5}
-        onChange={(e) => setActiveTime(e.target.value)}
+        onChange={(e) => setActiveTime(parseInt(e.target.value))}
       />
       <InputNumberCard
         title="Rest time"
@@ -36,7 +36,7 @@ const TimerForm = ({ submitTimer }) => {
         min={5}
         max={60}
         step={5}
-        onChange={(e) => setRestTime(e.target.value)}
+        onChange={(e) => setRestTime(parseInt(e.target.value))}
       />
       <InputNumberCard
         title="Intervals"

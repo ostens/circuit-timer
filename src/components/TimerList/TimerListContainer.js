@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import TimerList from "./TimerList";
 import {
   getTimers
-} from "../../selectors/TimerList.js";
+} from "../../selectors/index.js";
 
 const mapStateToProps = state => ({
   timers: getTimers(state),

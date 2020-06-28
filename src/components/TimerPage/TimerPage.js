@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
 
 import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton";
 import IntervalCounter from "../StyledComponents/IntervalCounter/IntervalCounter";
@@ -8,13 +7,7 @@ import TimerCounter from "../StyledComponents/TimerCounter/TimerCounter";
 import { calculateTotal } from "../StyledComponents/TimerCounter/TimerCounterUtils"
 import "./TimerPage.scss";
 
-const TimerPage = ({ timer, fetchTimer }) => {
-  const { id: idString } = useParams();
-  const id = parseInt(idString, 10);
-
-  useEffect(() => {
-    fetchTimer(id);
-  }, [fetchTimer, id]);
+const TimerPage = ({ timer }) => {
 
   const { intervals, activeTime, restTime } = timer;
   const [remainingTime, setRemainingTime] = useState(calculateTotal(activeTime, restTime, intervals));
@@ -79,7 +72,6 @@ const TimerPage = ({ timer, fetchTimer }) => {
 
 TimerPage.propTypes = {
   timer: PropTypes.object.isRequired,
-  fetchTimer: PropTypes.func.isRequired
 }
 
 export default TimerPage;
