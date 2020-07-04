@@ -2,22 +2,19 @@
 
 .buttonWrapper {
   display: flex;
-  position: relative;
-  bottom: 16px;
+  position: fixed;
+  top: 18px;
+  right: 18px;
 
   .button {
-    height: 36px;
-    width: 96px;
-    border-radius: 4px;
     border: none;
     outline: none;
-    margin: 8px;
     font-weight: $bold;
-    font-size: $font-size-s;
-    color: $black;
-    background-color: $blue;
+    font-size: $font-size-xxs;
+    color: $white;
+    background-color: $medium-grey;
     &:disabled {
-      background-color: $light-grey;
+      color: $light-grey;
     }
   }
 }

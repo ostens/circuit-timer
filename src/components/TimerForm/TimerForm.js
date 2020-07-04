@@ -47,7 +47,7 @@ const TimerForm = ({ submitTimer }) => {
         onChange={(e) => setIntervals(e.target.value)}
       /> 
       <Button
-        title="Save"
+        title="SAVE"
         disabled={!timerName}
         onClick={handleSubmitTimer}
       />
