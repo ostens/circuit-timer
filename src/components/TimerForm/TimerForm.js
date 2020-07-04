@@ -20,7 +20,7 @@ const TimerForm = ({ submitTimer }) => {
       <InputTextCard
         placeholder="Title your timer"
         name="timerName"
-        onChange={e => setTimerName(parseInt(e.target.value))}
+        onChange={e => setTimerName(e.target.value)}
       />
       <InputNumberCard
         title="Active time"
@@ -48,6 +48,7 @@ const TimerForm = ({ submitTimer }) => {
       /> 
       <Button
         title="Save"
+        disabled={!timerName}
         onClick={handleSubmitTimer}
       />
     </>

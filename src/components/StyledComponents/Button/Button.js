@@ -7,6 +7,7 @@ import { path } from "../../../constants";
 
 const Button = ({
   title,
+  disabled = false,
   onClick = () => { }
 }) => {
   return (
@@ -14,6 +15,7 @@ const Button = ({
       <Link to={path.list}>
         <button
           className="button"
+          disabled={disabled}
           onClick={onClick}
         >
           {title}
@@ -25,6 +27,7 @@ const Button = ({
 
 Button.propTypes = {
   title: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired
 }
 
