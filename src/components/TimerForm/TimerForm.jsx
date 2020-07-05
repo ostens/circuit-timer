@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import "./TimerForm.scss";
 import Button from "../StyledComponents/Button/Button";
 import InputTextCard from "../StyledComponents/InputTextCard/InputTextCard";
 import InputNumberCard from "../StyledComponents/InputNumberCard/InputNumberCard";
@@ -22,6 +23,28 @@ const TimerForm = ({ submitTimer }) => {
         name="timerName"
         onChange={e => setTimerName(e.target.value)}
       />
+      <svg
+        className="progressRing"
+      >
+        <text
+          className="text"
+          x="40"
+          y="65" >
+          {(activeTime + restTime) * intervals}s
+        </text>
+        <circle
+          className="activeCircle"
+          r="58"
+          cx="60"
+          cy="60"
+        />
+        <circle
+          className="restCircle"
+          r="58"
+          cx="60"
+          cy="60"
+        />
+      </svg>
       <InputNumberCard
         title="Active time"
         value={activeTime}
@@ -45,7 +68,7 @@ const TimerForm = ({ submitTimer }) => {
         max={20}
         step={1}
         onChange={(e) => setIntervals(e.target.value)}
-      /> 
+      />
       <Button
         title="SAVE"
         disabled={!timerName}

@@ -10,7 +10,6 @@
 
   .inputValue {
     font-size: $font-size-l;
-    margin-bottom: 20px;
   }
 
   .slider {
@@ -25,15 +24,15 @@
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%; 
     background: $white;
   }
 
   .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%; 
     background: $white;
   }
