@@ -48,6 +48,9 @@ const TimerForm = ({ submitTimer }) => {
         step={1}
         onChange={(e) => setIntervals(parseInt(e.target.value))}
       />
+      <div className="total">
+        {(activeTime + restTime) * intervals}s
+      </div>
       <TimerBar 
         activeTime={activeTime}
         restTime={restTime}

@@ -1,23 +1,5 @@
 @import "../globalStyles.scss";
 
-.progressRing {
-  height: 120px;
-  width: 120px;
-
-  .text {
-    fill: $white;
-    font-size: $font-size-l;
-  }
-
-  .activeCircle {
-    stroke: $blue;
-    stroke-width: 5px;
-    fill: transparent;
-  }
-  .restCircle {
-    stroke: $white;
-    stroke-width: 5px;
-    stroke-dasharray: 18 18;
-    fill: transparent;
-  }
+.total {
+  font-size: $font-size-l;
 }
