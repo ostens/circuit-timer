@@ -1,0 +1,12 @@
+@import "../../globalStyles.scss";
+
+.filler {
+    height: 100%;
+    border-radius: inherit;
+    &.active {
+       background-color: $green; 
+    }
+    &.rest {
+        background-color: $blue;
+    }
+}

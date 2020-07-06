@@ -1,0 +1,9 @@
+@import "../../globalStyles.scss";
+
+.timerBar {
+    position: relative;
+    height: 20px;
+    width: 80%;
+    background-color: $blue;
+    display: flex;
+}

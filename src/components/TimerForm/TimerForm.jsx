@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./TimerForm.scss";
 import Button from "../StyledComponents/Button/Button";
 import InputTextCard from "../StyledComponents/InputTextCard/InputTextCard";
+import TimerBar from "../StyledComponents/TimerBar/TimerBar";
 import InputNumberCard from "../StyledComponents/InputNumberCard/InputNumberCard";
 
 const TimerForm = ({ submitTimer }) => {
@@ -23,28 +24,6 @@ const TimerForm = ({ submitTimer }) => {
         name="timerName"
         onChange={e => setTimerName(e.target.value)}
       />
-      <svg
-        className="progressRing"
-      >
-        <text
-          className="text"
-          x="40"
-          y="65" >
-          {(activeTime + restTime) * intervals}s
-        </text>
-        <circle
-          className="activeCircle"
-          r="58"
-          cx="60"
-          cy="60"
-        />
-        <circle
-          className="restCircle"
-          r="58"
-          cx="60"
-          cy="60"
-        />
-      </svg>
       <InputNumberCard
         title="Active time"
         value={activeTime}
@@ -67,7 +46,12 @@ const TimerForm = ({ submitTimer }) => {
         min={5}
         max={20}
         step={1}
-        onChange={(e) => setIntervals(e.target.value)}
+        onChange={(e) => setIntervals(parseInt(e.target.value))}
+      />
+      <TimerBar 
+        activeTime={activeTime}
+        restTime={restTime}
+        intervals={intervals}
       />
       <Button
         title="SAVE"
