@@ -12,16 +12,51 @@ const IntervalCounter = ({
 }) => {
   const time = convertTime(seconds);
   return (
-    <div className="circle">
-      <div className="text">
-        {state}
-      </div>
-      <div className={`largeTimer ${state === "Active" ? "active" : "rest"}`}>
-        {time}
-      </div>
-      <div className="text">Interval {`${currentInterval}/${intervals}`}</div>
-    </div>
-
+    <svg
+      className="intervalCircle"
+      width="300"
+      height="300"
+    >
+      <circle
+        className="circle"
+        cx="150"
+        cy="150"
+        r="140"></circle>
+      <circle
+        className="circleProgress"
+        cx="150"
+        cy="150"
+        r="140"
+        transform="rotate(-90 150 150)"
+        style={{
+          strokeDasharray: Math.PI * 280,
+          strokeDashoffset: (Math.PI * 280) - (3.14 * 280) * seconds / 30
+        }}
+      >
+      </circle>
+      <text
+        className="text"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        x="50%"
+        y="20%">{state}</text>
+      <text
+        className="largeText"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        x="50%"
+        y="50%"
+      >{time}
+      </text>
+      <text
+        className="text"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        x="50%"
+        y="80%"
+      >Interval {`${currentInterval}/${intervals}`}
+      </text>
+    </svg>
   )
 }
 
