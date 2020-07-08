@@ -16,25 +16,19 @@
     stroke-width: 5px;
     fill: transparent;
   }
-  .largeText {
-    fill: $white;
+  .largeTimer {
     font-size: $font-size-xxl;
-    font-weight: $bold;
+    font-weight: $semi-bold;
+    margin: 10px;
+    &.active {
+      fill: $red;
+    }
+    &.rest {
+      fill: $green;
+    }
   }
   .text {
     fill: $white;
     font-size: $font-size-m;
-  }
-}
-
-.largeTimer {
-  font-size: $font-size-xxl;
-  font-weight: $semi-bold;
-  margin: 10px;
-  &.active {
-    color: $red;
-  }
-  &.rest {
-    color: $green;
   }
 }
