@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import "./TimerForm.scss";
 import Button from "../StyledComponents/Button/Button";
 import InputTextCard from "../StyledComponents/InputTextCard/InputTextCard";
-import TimerBar from "../StyledComponents/TimerBar/TimerBar";
 import InputNumberCard from "../StyledComponents/InputNumberCard/InputNumberCard";
 
 const TimerForm = ({ submitTimer }) => {
@@ -47,14 +46,6 @@ const TimerForm = ({ submitTimer }) => {
         max={20}
         step={1}
         onChange={(e) => setIntervals(parseInt(e.target.value))}
-      />
-      <div className="total">
-        {(activeTime + restTime) * intervals}s
-      </div>
-      <TimerBar 
-        activeTime={activeTime}
-        restTime={restTime}
-        intervals={intervals}
       />
       <Button
         title="SAVE"

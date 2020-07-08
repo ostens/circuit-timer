@@ -50,7 +50,6 @@ const TimerPage = ({ timer }) => {
       <TimerCounter
         seconds={remainingTime}
       />
-      Remaining
       <div className="controlBar">
         <button className="textButton">
           Delete

@@ -1,7 +1,13 @@
 @import "../../globalStyles.scss";
 
-.timer {
-  font-size: $font-size-xl;
-  font-weight: $semi-bold;
-  margin: 10px;
+.totalTime {
+  width: 80%;
+  margin: 20px;
+
+  .timer {
+    font-size: $font-size-xl;
+    font-weight: $semi-bold;
+    margin: 10px;
+  }
 }
+
