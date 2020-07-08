@@ -11,26 +11,35 @@ const IntervalCounter = ({
   state
 }) => {
   const time = convertTime(seconds);
+  const svgLength = 280;
+  const centrePosition = svgLength / 2;
+  const strokeWidth = 5;
+  const radius = (svgLength - 2 * strokeWidth) / 2;
+  const circumference = Math.PI * 2 * radius;
+
   return (
     <svg
       className="intervalCircle"
-      width="300"
-      height="300"
+      width={svgLength}
+      height={svgLength}
     >
       <circle
         className="circle"
-        cx="150"
-        cy="150"
-        r="140"></circle>
+        cx={centrePosition}
+        cy={centrePosition}
+        r={radius}
+      >
+      </circle>
       <circle
         className="circleProgress"
-        cx="150"
-        cy="150"
-        r="140"
-        transform="rotate(-90 150 150)"
+        cx={centrePosition}
+        cy={centrePosition}
+        r={radius}
+        transform="rotate(-90) scale(1, -1)"
         style={{
-          strokeDasharray: Math.PI * 280,
-          strokeDashoffset: (Math.PI * 280) - (3.14 * 280) * seconds / 30
+          transformOrigin: "center",
+          strokeDasharray: circumference,
+          strokeDashoffset: (circumference) - (circumference * seconds / 30)
         }}
       >
       </circle>
