@@ -6,7 +6,8 @@ import "./TimerCounter.scss";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
 const TimerCounter = ({
-  seconds
+  seconds,
+  totalSeconds
 }) => {
   const time = convertTime(seconds);
   return (
@@ -17,7 +18,7 @@ const TimerCounter = ({
         {time}
       </div>
     Remaining
-      <ProgressBar seconds={seconds} totalSeconds={300} />
+      <ProgressBar seconds={seconds} totalSeconds={totalSeconds} />
     </div>
 
   )
@@ -25,6 +26,7 @@ const TimerCounter = ({
 
 TimerCounter.propTypes = {
   seconds: PropTypes.number.isRequired,
+  totalSeconds: PropTypes.number.isRequired
 }
 
 export default TimerCounter;

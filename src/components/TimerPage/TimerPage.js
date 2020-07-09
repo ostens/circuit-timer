@@ -45,10 +45,12 @@ const TimerPage = ({ timer }) => {
         currentInterval={currentInterval}
         intervals={intervals}
         state={remainingIntervalTime > restTime ? "Active" : "Rest"}
+        intervalLength={intervalTime}
         seconds={remainingIntervalTime}
       />
       <TimerCounter
         seconds={remainingTime}
+        totalSeconds={totalTime}
       />
       <div className="controlBar">
         <button className="textButton">

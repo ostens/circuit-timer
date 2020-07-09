@@ -8,7 +8,8 @@ const IntervalCounter = ({
   currentInterval,
   intervals,
   seconds,
-  state
+  state,
+  intervalLength
 }) => {
   const time = convertTime(seconds);
   const svgLength = 280;
@@ -39,7 +40,7 @@ const IntervalCounter = ({
         style={{
           transformOrigin: "center",
           strokeDasharray: circumference,
-          strokeDashoffset: (circumference) - (circumference * seconds / 30)
+          strokeDashoffset: (circumference) - (circumference * seconds / intervalLength)
         }}
       >
       </circle>
@@ -73,7 +74,8 @@ IntervalCounter.propTypes = {
   currentInterval: PropTypes.number.isRequired,
   intervals: PropTypes.number.isRequired,
   seconds: PropTypes.number.isRequired,
-  state: PropTypes.string.isRequired
+  state: PropTypes.string.isRequired,
+  intervalLength: PropTypes.number.isRequired
 }
 
 export default IntervalCounter;
