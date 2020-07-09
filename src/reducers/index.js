@@ -2,9 +2,9 @@ import { SUBMIT_TIMER } from "../actions/index";
 
 const initialTimer = {
   timerName: "Default",
-  activeTime: 20,
-  restTime: 10,
-  intervals: 10
+  activeTime: 5,
+  restTime: 5,
+  intervals: 2
 };
 
 const INITIAL_STATE = {
