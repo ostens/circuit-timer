@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import "./TimerForm.scss";
 import Button from "../StyledComponents/Button/Button";
 import InputTextCard from "../StyledComponents/InputTextCard/InputTextCard";
 import InputNumberCard from "../StyledComponents/InputNumberCard/InputNumberCard";
