@@ -42,7 +42,7 @@ const TimerForm = ({ submitTimer }) => {
       <InputNumberCard
         title="Intervals"
         value={intervals}
-        min={5}
+        min={1}
         max={20}
         step={1}
         onChange={(e) => setIntervals(parseInt(e.target.value))}
