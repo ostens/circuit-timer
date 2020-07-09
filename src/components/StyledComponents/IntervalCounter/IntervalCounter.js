@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { ACTIVE } from "../../../constants";
 import { convertTime } from "../TimerCounter/TimerCounterUtils";
 import "./IntervalCounter.scss";
 
@@ -51,7 +52,7 @@ const IntervalCounter = ({
         x="50%"
         y="20%">{state}</text>
       <text
-        className={`largeTimer ${state === "Active" ? "active" : "rest"} ${seconds === 0 ? "end" : ""}`}
+        className={`largeTimer ${state === ACTIVE ? "active" : "rest"} ${seconds === 0 ? "finished" : ""}`}
         textAnchor="middle"
         dominantBaseline="middle"
         x="50%"
