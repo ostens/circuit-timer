@@ -15,7 +15,7 @@ const TimerPage = ({ timer }) => {
 
   const totalTime = calculateTotal(activeTime, restTime, intervals);
   const intervalTime = activeTime + restTime;
-  const remainingIntervalTime = remainingTime % intervalTime || intervalTime;
+  const remainingIntervalTime = remainingTime % intervalTime || (remainingTime === 0 ? 0 : intervalTime);
   const currentInterval = Math.floor((totalTime - remainingTime) / intervalTime) + 1;
 
   const toggle = () => {
@@ -29,12 +29,16 @@ const TimerPage = ({ timer }) => {
 
   useEffect(() => {
     let interval = null;
-    if (isActive) {
+    if (isActive && remainingTime !== 0) {
       interval = setInterval(() => {
         setRemainingTime(remainingTime => remainingTime - 1);
       }, 1000);
     } else if (!isActive && remainingTime !== 0) {
       clearInterval(interval);
+    } else if (isActive && remainingTime === 0) {
+      clearInterval(interval);
+      setIsActive(false);
+
     }
     return () => clearInterval(interval);
   }, [isActive, remainingTime]);

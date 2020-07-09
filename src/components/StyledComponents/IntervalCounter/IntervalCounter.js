@@ -51,7 +51,7 @@ const IntervalCounter = ({
         x="50%"
         y="20%">{state}</text>
       <text
-        className={`largeTimer ${state === "Active" ? "active" : "rest"}`}
+        className={`largeTimer ${state === "Active" ? "active" : "rest"} ${seconds === 0 ? "end" : ""}`}
         textAnchor="middle"
         dominantBaseline="middle"
         x="50%"

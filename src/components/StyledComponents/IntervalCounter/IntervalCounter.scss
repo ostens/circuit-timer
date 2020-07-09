@@ -26,6 +26,15 @@
     &.rest {
       fill: $green;
     }
+    &.end {
+      fill: $white;
+      animation: blinker 1s linear infinite;
+    }
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
   }
   .text {
     fill: $white;
