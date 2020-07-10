@@ -40,7 +40,7 @@ const TimerPage = ({ timer }) => {
     } else if (playingState === PAUSED) {
       return "Play";
     } else if (playingState === FINISHED) {
-      return "Stop";
+      return "Restart";
     }
   }
 

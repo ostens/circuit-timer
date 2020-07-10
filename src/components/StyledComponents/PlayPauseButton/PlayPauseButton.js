@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Play from "../../Icons/play.svg";
 import Pause from "../../Icons/pause.svg";
-import Stop from "../../Icons/stop.svg";
+import Restart from "../../Icons/restart.svg";
 import "./PlayPauseButton.scss";
 
 const PlayPauseButton = ({
@@ -16,8 +16,8 @@ const PlayPauseButton = ({
       return Play;
     } else if (action === "Pause") {
       return Pause;
-    } else if (action === "Stop") {
-      return Stop;
+    } else if (action === "Restart") {
+      return Restart;
     }
   }
 
