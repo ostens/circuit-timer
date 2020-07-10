@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import PlayPauseButton from "../StyledComponents/PlayPauseButton/PlayPauseButton";
 import IntervalCounter from "../StyledComponents/IntervalCounter/IntervalCounter";
-import TimerCounter from "../StyledComponents/TimerCounter/TimerCounter";
+import ProgressBubbles from "../StyledComponents/ProgressBubbles/ProgressBubbles";
 import { calculateTotal } from "../StyledComponents/TimerCounter/TimerCounterUtils"
 import { ACTIVE, REST, PLAYING, PAUSED, FINISHED } from "../../constants";
 import "./TimerPage.scss";
@@ -69,9 +69,9 @@ const TimerPage = ({ timer }) => {
         intervalLength={intervalTime}
         seconds={remainingIntervalTime}
       />
-      <TimerCounter
-        seconds={remainingTime}
-        totalSeconds={totalTime}
+      <ProgressBubbles
+        currentInterval={currentInterval}
+        intervals={intervals}
       />
       <div className="controlBar">
         <button className="textButton">
