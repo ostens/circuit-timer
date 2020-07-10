@@ -44,7 +44,6 @@ const TimerPage = ({ timer }) => {
     }
   }
 
-  console.log(playingState);
   useEffect(() => {
     let interval = null;
     if (playingState === PLAYING && remainingTime !== 0) {
