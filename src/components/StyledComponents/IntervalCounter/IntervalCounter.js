@@ -13,7 +13,7 @@ const IntervalCounter = ({
   intervalLength
 }) => {
   const time = convertTime(seconds);
-  const svgLength = 280;
+  const svgLength = 250;
   const centrePosition = svgLength / 2;
   const strokeWidth = 5;
   const radius = (svgLength - 2 * strokeWidth) / 2;
