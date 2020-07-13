@@ -1,82 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ACTIVE } from "../../../constants";
-import { convertTime } from "../TimerCounter/TimerCounterUtils";
 import "./IntervalCounter.scss";
 
 const IntervalCounter = ({
   currentInterval,
-  intervals,
-  seconds,
-  state,
-  intervalLength
+  intervals
 }) => {
-  const time = convertTime(seconds);
-  const svgLength = 250;
-  const centrePosition = svgLength / 2;
-  const strokeWidth = 5;
-  const radius = (svgLength - 2 * strokeWidth) / 2;
-  const circumference = Math.PI * 2 * radius;
+  const intervalProgress = Array(intervals).fill(false).fill(true, 0, currentInterval);
 
   return (
-    <svg
-      className="intervalCircle"
-      width={svgLength}
-      height={svgLength}
-    >
-      <circle
-        className="circle"
-        cx={centrePosition}
-        cy={centrePosition}
-        r={radius}
-      >
-      </circle>
-      <circle
-        className="circleProgress"
-        cx={centrePosition}
-        cy={centrePosition}
-        r={radius}
-        transform="rotate(-90) scale(1, -1)"
-        style={{
-          transformOrigin: "center",
-          strokeDasharray: circumference,
-          strokeDashoffset: (circumference) - (circumference * seconds / intervalLength)
-        }}
-      >
-      </circle>
-      <text
-        className="text"
-        textAnchor="middle"
-        dominantBaseline="middle"
-        x="50%"
-        y="20%">{state}</text>
-      <text
-        className={`largeTimer ${state === ACTIVE ? "active" : "rest"} ${seconds === 0 ? "finished" : ""}`}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        x="50%"
-        y="50%"
-      >{time}
-      </text>
-      <text
-        className="text"
-        textAnchor="middle"
-        dominantBaseline="middle"
-        x="50%"
-        y="80%"
-      >Interval {`${currentInterval}/${intervals}`}
-      </text>
-    </svg>
+    <div className="intervalCounter">
+      {intervalProgress.map((isComplete, index) =>
+        <span
+          className={`intervalDot ${isComplete ? "filled" : "empty"}`}
+          key={index}
+        />
+      )}
+    </div>
   )
 }
 
 IntervalCounter.propTypes = {
   currentInterval: PropTypes.number.isRequired,
-  intervals: PropTypes.number.isRequired,
-  seconds: PropTypes.number.isRequired,
-  state: PropTypes.string.isRequired,
-  intervalLength: PropTypes.number.isRequired
+  intervals: PropTypes.number.isRequired
 }
 
 export default IntervalCounter;

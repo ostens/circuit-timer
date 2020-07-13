@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import {
   showBackButton,
-  chooseTitle
+  selectTitle
 } from "./NavBarUtils";
 import { path } from "../../constants";
 import BackButton from "../StyledComponents/BackButton/BackButton";
@@ -13,7 +13,7 @@ import "./NavBar.scss";
 const NavBar = ({ location }) => {
   const currentPath = location.pathname;
   const backButtonShowing = showBackButton(currentPath);
-  const title = chooseTitle(currentPath);
+  const title = selectTitle(currentPath);
 
   return (
     <div className="navBar">

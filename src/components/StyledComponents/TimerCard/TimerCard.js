@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 
-import { calculateTotal, convertTime } from "../TimerCounter/TimerCounterUtils";
+import { calculateTotalTime, convertTime } from "../../TimerPlayer/TimerPlayerUtils";
 import { path } from "../../../constants";
 import "./TimerCard.scss";
 
@@ -12,7 +12,8 @@ const TimerCard = ({
   history
 }) => {
   const { timerName, activeTime, restTime, intervals } = timer;
-  const totalTime = convertTime(calculateTotal(activeTime, restTime, intervals));
+
+  const totalTime = calculateTotalTime(activeTime, restTime, intervals);
 
   const redirect = () => {
     history.push(`${path.list}/${id}`);
@@ -22,23 +23,19 @@ const TimerCard = ({
     <div
       className="timerCard"
       onClick={redirect}>
-      <div className="total">
-        {totalTime}
+      <div className="totalTime">
+        {convertTime(totalTime)}
       </div>
-      <div className="content">
-        <div className="title">{timerName}</div>
-        <div className="text">
-          <i
-            className="arrow up"
-          />
+      <div className="subtextWrapper">
+        <div className="subtext">{timerName}</div>
+        <div className="subtext">
+          <i className="arrow up" />
           {activeTime}s
           <i className="dividor">•</i>
-          <i
-            className="arrow down"
-          />
+          <i className="arrow down" />
           {restTime}s
-      </div>
-        <div className="text">{intervals} intervals </div>
+        </div>
+        <div className="subtext">{intervals} intervals </div>
       </div>
     </div>
   )

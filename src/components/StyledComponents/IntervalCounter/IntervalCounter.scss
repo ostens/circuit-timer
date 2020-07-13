@@ -1,43 +1,22 @@
 @import "../../globalStyles.scss";
 
-.intervalCircle {
-  margin: 20px;
+.intervalCounter {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 
-  .circle {
-    stroke: $white;
-    stroke-width: 5px;
-    fill: transparent;
-  }
-  .circleProgress {
-    stroke: $blue;
-    stroke-width: 5px;
-    fill: transparent;
-  }
-  .largeTimer {
-    font-size: $font-size-xxl;
-    font-weight: $semi-bold;
-    margin: 10px;
-    &.active {
-      fill: $red;
+  .intervalDot {
+    margin: 5px;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+
+    &.empty {
+      background-color: $light-grey;
     }
-    &.rest {
-      fill: $green;
+    &.filled {
+      background-color: $blue;
     }
-    &.finished {
-      fill: $white;
-      animation: blinker 1s linear infinite;
-    }
-    @keyframes blinker {
-      50% {
-        opacity: 0;
-      }
-    }
-  }
-  .text {
-    fill: $white;
-    font-size: $font-size-m;
   }
 }

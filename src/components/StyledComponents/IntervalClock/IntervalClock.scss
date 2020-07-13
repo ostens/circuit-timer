@@ -1,0 +1,43 @@
+@import "../../globalStyles.scss";
+
+.intervalClock {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  .backgroundCircle {
+    stroke: $white;
+    stroke-width: 5px;
+    fill: transparent;
+  }
+  .progressArc {
+    stroke: $blue;
+    stroke-width: 5px;
+    fill: transparent;
+  }
+  .largeClockText {
+    font-size: $font-size-xxl;
+    font-weight: $semi-bold;
+    margin: 10px;
+    &.Active {
+      fill: $red;
+    }
+    &.Rest {
+      fill: $green;
+    }
+    &.finished {
+      fill: $white;
+      animation: blinker 1s linear infinite;
+    }
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+  }
+  .smallClockText {
+    fill: $white;
+    font-size: $font-size-m;
+  }
+}

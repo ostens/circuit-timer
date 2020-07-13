@@ -4,20 +4,24 @@ import PropTypes from "prop-types";
 import Play from "../../Icons/play.svg";
 import Pause from "../../Icons/pause.svg";
 import Restart from "../../Icons/restart.svg";
-import "./PlayPauseButton.scss";
+import { PLAY, PAUSE, RESTART } from "../../../constants";
+import "./PlayControlButton.scss";
 
-const PlayPauseButton = ({
+const PlayControlButton = ({
   onClick = () => { },
   action
 }) => {
 
   const selectControlIcon = () => {
-    if (action === "Play") {
-      return Play;
-    } else if (action === "Pause") {
-      return Pause;
-    } else if (action === "Restart") {
-      return Restart;
+    switch (action) {
+      case PLAY:
+        return Play;
+      case PAUSE:
+        return Pause;
+      case RESTART:
+        return Restart;
+      default:
+        return Play;
     }
   }
 
@@ -36,9 +40,9 @@ const PlayPauseButton = ({
   )
 };
 
-PlayPauseButton.propTypes = {
+PlayControlButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   action: PropTypes.string.isRequired
 }
 
-export default PlayPauseButton;
+export default PlayControlButton;

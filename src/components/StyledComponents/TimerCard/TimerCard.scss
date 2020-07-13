@@ -11,26 +11,17 @@
   border-bottom-style: solid;
   border-bottom-color: $light-grey;
 
-  .image {
-    height: 50px;
-  }
-
-  .total {
+  .totalTime {
     font-size: $font-size-xxl;
   }
 
-  .content {
+  .subtextWrapper {
     display: inline-block;
     text-align: left;
     color: $white;
 
-    .title {
-      font-size: $font-size-m;
-    }
-
-    .text {
+    .subtext {
       margin-left: 5px;
-      font-weight: $regular;
 
       .arrow {
         border: solid;
