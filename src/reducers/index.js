@@ -1,14 +1,19 @@
 import { SUBMIT_TIMER } from "../actions/index";
 
-const initialTimer = {
-  timerName: "Default",
+const defaultTimers = [{
+  timerName: "Longboi",
+  activeTime: 10,
+  restTime: 5,
+  intervals: 10
+}, {
+  timerName: "Smolboi",
   activeTime: 5,
   restTime: 5,
   intervals: 2
-};
+}];
 
 const INITIAL_STATE = {
-  timers: [initialTimer]
+  timers: defaultTimers
 };
 
 export default (state = INITIAL_STATE, action) => {
