@@ -34,3 +34,13 @@ $dark-grey: #282c34;
   border-radius: 50%;
   outline: none;
 }
+
+@mixin blinker {
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

@@ -68,6 +68,7 @@ const TimerPlayer = ({ timer }) => {
         remainingIntervalTime={remainingIntervalTime}
         remainingTime={remainingTime}
         totalTime={totalTime}
+        countdownState={countdownState}
       />
       <IntervalCounter
         intervals={intervals}

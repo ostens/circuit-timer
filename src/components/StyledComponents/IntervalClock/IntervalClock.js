@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ACTIVE, REST } from "../../../constants";
+import { ACTIVE, REST, PAUSED, FINISHED } from "../../../constants";
 import { convertTime } from "../../TimerPlayer/TimerPlayerUtils";
 import "./IntervalClock.scss";
 
@@ -10,7 +10,8 @@ const IntervalClock = ({
   intervalState,
   intervalTime,
   remainingTime,
-  totalTime
+  totalTime,
+  countdownState
 }) => {
 
   const svgLength = 250;
@@ -26,7 +27,7 @@ const IntervalClock = ({
       height={svgLength}
     >
       <circle
-        className="backgroundCircle"
+        className={`backgroundCircle ${countdownState === FINISHED ? "flashCircle" : ""}`}
         cx={centrePosition}
         cy={centrePosition}
         r={radius}
@@ -52,7 +53,7 @@ const IntervalClock = ({
         x="50%"
         y="20%">{intervalState}</text>
       <text
-        className={`largeClockText ${intervalState === ACTIVE ? ACTIVE : REST} ${remainingIntervalTime === 0 ? "finished" : ""}`}
+        className={`largeClockText ${intervalState === ACTIVE ? ACTIVE : REST} ${(countdownState === PAUSED && remainingTime !== totalTime) ? "flash" : ""}`}
         textAnchor="middle"
         dominantBaseline="middle"
         x="50%"
@@ -76,7 +77,8 @@ IntervalClock.propTypes = {
   intervalState: PropTypes.string.isRequired,
   intervalTime: PropTypes.number.isRequired,
   remainingTime: PropTypes.number.isRequired,
-  totalTime: PropTypes.number.isRequired
+  totalTime: PropTypes.number.isRequired,
+  countdownState: PropTypes.string.isRequired
 }
 
 export default IntervalClock;

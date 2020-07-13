@@ -10,6 +10,9 @@
     stroke: $white;
     stroke-width: 5px;
     fill: transparent;
+    &.flashCircle {
+      @include blinker;
+    }
   }
   .progressArc {
     stroke: $blue;
@@ -26,14 +29,8 @@
     &.Rest {
       fill: $green;
     }
-    &.finished {
-      fill: $white;
-      animation: blinker 1s linear infinite;
-    }
-    @keyframes blinker {
-      50% {
-        opacity: 0;
-      }
+    &.flash {
+      @include blinker;
     }
   }
   .smallClockText {
