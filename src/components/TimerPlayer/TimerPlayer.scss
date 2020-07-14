@@ -1,5 +1,12 @@
 @import "../globalStyles.scss";
 
+.clockWrapper {
+  display: flex;
+  flex-grow: 0.5;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .controlBar {
   display: flex;
   align-items: center;

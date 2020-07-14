@@ -62,6 +62,7 @@ const TimerPlayer = ({ timer }) => {
 
   return (
     <>
+    <div className="clockWrapper">
       <IntervalClock
         intervalState={remainingIntervalTime > restTime ? ACTIVE : REST}
         intervalTime={intervalTime}
@@ -74,6 +75,7 @@ const TimerPlayer = ({ timer }) => {
         intervals={intervals}
         currentInterval={currentInterval}
       />
+      </div>
       <div className="controlBar">
         <button className="textButton">
           Delete
