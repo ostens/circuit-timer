@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import PlayControlButton from "../StyledComponents/PlayControlButton/PlayControlButton";
 import IntervalClock from "../StyledComponents/IntervalClock/IntervalClock";
 import IntervalCounter from "../StyledComponents/IntervalCounter/IntervalCounter";
 import { calculateTotalTime } from "./TimerPlayerUtils"
-import { ACTIVE, REST, PLAYING, PAUSED, FINISHED, PLAY, PAUSE, RESTART } from "../../constants";
+import { ACTIVE, REST, PLAYING, PAUSED, FINISHED, PLAY, PAUSE, RESTART, path } from "../../constants";
 import "./TimerPlayer.scss";
 
-const TimerPlayer = ({ timer }) => {
+const TimerPlayer = ({ id, timer, deleteTimer }) => {
   const { intervals, activeTime, restTime } = timer;
+  const index = parseInt(id);
 
   const [remainingTime, setRemainingTime] = useState(calculateTotalTime(activeTime, restTime, intervals));
   const [countdownState, setCountdownState] = useState(PAUSED);
@@ -32,6 +34,10 @@ const TimerPlayer = ({ timer }) => {
   const reset = () => {
     setRemainingTime(totalTime);
     setCountdownState(PAUSED);
+  }
+
+  const handleDeleteTimer = () => {
+    deleteTimer(index);
   }
 
   const countdownAction = () => {
@@ -62,24 +68,29 @@ const TimerPlayer = ({ timer }) => {
 
   return (
     <>
-    <div className="clockWrapper">
-      <IntervalClock
-        intervalState={remainingIntervalTime > restTime ? ACTIVE : REST}
-        intervalTime={intervalTime}
-        remainingIntervalTime={remainingIntervalTime}
-        remainingTime={remainingTime}
-        totalTime={totalTime}
-        countdownState={countdownState}
-      />
-      <IntervalCounter
-        intervals={intervals}
-        currentInterval={currentInterval}
-      />
+      <div className="clockWrapper">
+        <IntervalClock
+          intervalState={remainingIntervalTime > restTime ? ACTIVE : REST}
+          intervalTime={intervalTime}
+          remainingIntervalTime={remainingIntervalTime}
+          remainingTime={remainingTime}
+          totalTime={totalTime}
+          countdownState={countdownState}
+        />
+        <IntervalCounter
+          intervals={intervals}
+          currentInterval={currentInterval}
+        />
       </div>
       <div className="controlBar">
-        <button className="textButton">
-          Delete
+        <Link to={path.list}>
+          <button
+            className="textButton"
+            onClick={handleDeleteTimer}
+          >
+            Delete
         </button>
+        </Link>
         <button
           className="textButton"
           onClick={reset}
@@ -97,6 +108,7 @@ const TimerPlayer = ({ timer }) => {
 
 TimerPlayer.propTypes = {
   timer: PropTypes.object.isRequired,
+  deleteTimer: PropTypes.func.isRequired,
 }
 
 export default TimerPlayer;

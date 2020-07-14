@@ -1,4 +1,4 @@
-import { SUBMIT_TIMER } from "../actions/index";
+import { SUBMIT_TIMER, DELETE_TIMER } from "../actions/index";
 
 const defaultTimers = [{
   timerName: "Longboi",
@@ -27,6 +27,11 @@ export default (state = INITIAL_STATE, action) => {
           restTime: action.restTime,
           intervals: action.intervals
         })
+      };
+    case DELETE_TIMER:
+      return {
+        ...state,
+        timers: [...state.timers.slice(0, action.index), ...state.timers.slice(action.index + 1)]
       };
     default:
       return state;
