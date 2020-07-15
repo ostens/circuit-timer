@@ -7,17 +7,20 @@ import IntervalClock from "../StyledComponents/IntervalClock/IntervalClock";
 import IntervalCounter from "../StyledComponents/IntervalCounter/IntervalCounter";
 import AudioButton from "../StyledComponents/AudioButton/AudioButton";
 import { calculateTotalTime } from "./TimerPlayerUtils"
-import Beep from "../Sounds/beep.mp3";
+import ShortBeep from "../Sounds/short-beep.mp3";
+import LongBeep from "../Sounds/long-beep.mp3";
 import { ACTIVE, REST, PLAYING, PAUSED, FINISHED, PLAY, PAUSE, RESTART, path } from "../../constants";
 import "./TimerPlayer.scss";
 
 const TimerPlayer = ({ id, timer, deleteTimer }) => {
   const { intervals, activeTime, restTime } = timer;
   const index = parseInt(id);
-  const BeepSound = new Audio(Beep);
+  const LongBeepSound = new Audio(ShortBeep);
+  const ShortBeepSound = new Audio(LongBeep);
 
   const [remainingTime, setRemainingTime] = useState(calculateTotalTime(activeTime, restTime, intervals));
   const [countdownState, setCountdownState] = useState(PAUSED);
+  const [soundOn, setSoundOn] = useState(true);
 
   const totalTime = calculateTotalTime(activeTime, restTime, intervals);
   const intervalTime = activeTime + restTime;
@@ -43,8 +46,8 @@ const TimerPlayer = ({ id, timer, deleteTimer }) => {
     deleteTimer(index);
   }
 
-  const playSound = () => {
-    BeepSound.play();
+  const toggleSound = () => {
+    setSoundOn(!soundOn);
   }
 
   const countdownAction = () => {
@@ -63,20 +66,28 @@ const TimerPlayer = ({ id, timer, deleteTimer }) => {
       interval = setInterval(() => {
         setRemainingTime(remainingTime => remainingTime - 1);
       }, 1000);
+      if (remainingIntervalTime === restTime && soundOn) {
+        ShortBeepSound.play();
+      }
+      if (remainingIntervalTime === intervalTime && soundOn) {
+        LongBeepSound.play();
+      }
     } else if (countdownState === PAUSED) {
       clearInterval(interval);
     } else if (countdownState === PLAYING && remainingTime === 0) {
+      LongBeepSound.play();
       clearInterval(interval);
       setCountdownState(FINISHED);
 
     }
     return () => clearInterval(interval);
-  }, [countdownState, remainingTime]);
+  }, [countdownState, remainingTime, LongBeepSound, ShortBeepSound, remainingIntervalTime, intervalTime, restTime, soundOn]);
 
   return (
     <>
-      <AudioButton 
-        onClick={playSound} />
+      <AudioButton
+        onClick={toggleSound}
+        disabled={!soundOn} />
       <div className="clockWrapper">
         <IntervalClock
           intervalState={remainingIntervalTime > restTime ? ACTIVE : REST}
