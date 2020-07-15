@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 import PlayControlButton from "../StyledComponents/PlayControlButton/PlayControlButton";
 import IntervalClock from "../StyledComponents/IntervalClock/IntervalClock";
 import IntervalCounter from "../StyledComponents/IntervalCounter/IntervalCounter";
+import AudioButton from "../StyledComponents/AudioButton/AudioButton";
 import { calculateTotalTime } from "./TimerPlayerUtils"
+import Beep from "../Sounds/beep.mp3";
 import { ACTIVE, REST, PLAYING, PAUSED, FINISHED, PLAY, PAUSE, RESTART, path } from "../../constants";
 import "./TimerPlayer.scss";
 
 const TimerPlayer = ({ id, timer, deleteTimer }) => {
   const { intervals, activeTime, restTime } = timer;
   const index = parseInt(id);
+  const BeepSound = new Audio(Beep);
 
   const [remainingTime, setRemainingTime] = useState(calculateTotalTime(activeTime, restTime, intervals));
   const [countdownState, setCountdownState] = useState(PAUSED);
@@ -38,6 +41,10 @@ const TimerPlayer = ({ id, timer, deleteTimer }) => {
 
   const handleDeleteTimer = () => {
     deleteTimer(index);
+  }
+
+  const playSound = () => {
+    BeepSound.play();
   }
 
   const countdownAction = () => {
@@ -68,6 +75,8 @@ const TimerPlayer = ({ id, timer, deleteTimer }) => {
 
   return (
     <>
+      <AudioButton 
+        onClick={playSound} />
       <div className="clockWrapper">
         <IntervalClock
           intervalState={remainingIntervalTime > restTime ? ACTIVE : REST}
