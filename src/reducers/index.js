@@ -1,12 +1,12 @@
 import { SUBMIT_TIMER, DELETE_TIMER } from "../actions/index";
 
 const defaultTimers = [{
-  timerName: "Longboi",
+  timerName: "Long default",
   activeTime: 10,
   restTime: 5,
   intervals: 10
 }, {
-  timerName: "Smolboi",
+  timerName: "Short default",
   activeTime: 5,
   restTime: 5,
   intervals: 2
