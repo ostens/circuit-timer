@@ -20,7 +20,7 @@ const TimerPlayer = ({ id, timer, deleteTimer }) => {
 
   const [remainingTime, setRemainingTime] = useState(calculateTotalTime(activeTime, restTime, intervals));
   const [countdownState, setCountdownState] = useState(PAUSED);
-  const [soundOn, setSoundOn] = useState(true);
+  const [soundOn, setSoundOn] = useState(false);
 
   const totalTime = calculateTotalTime(activeTime, restTime, intervals);
   const intervalTime = activeTime + restTime;
