@@ -66,16 +66,19 @@ const TimerPlayer = ({ id, timer, deleteTimer }) => {
       interval = setInterval(() => {
         setRemainingTime(remainingTime => remainingTime - 1);
       }, 1000);
-      if (remainingIntervalTime === restTime && soundOn) {
-        ShortBeepSound.play();
-      }
-      if (remainingIntervalTime === intervalTime && soundOn) {
-        LongBeepSound.play();
+      if (soundOn) {
+        if (remainingIntervalTime === restTime) {
+          ShortBeepSound.play();
+        } else if (remainingIntervalTime === intervalTime) {
+          LongBeepSound.play();
+        }
       }
     } else if (countdownState === PAUSED) {
       clearInterval(interval);
     } else if (countdownState === PLAYING && remainingTime === 0) {
-      LongBeepSound.play();
+      if (soundOn) {
+        LongBeepSound.play();
+      }
       clearInterval(interval);
       setCountdownState(FINISHED);
 
