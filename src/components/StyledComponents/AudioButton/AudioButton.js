@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Audio from "../../Icons/headphones.svg";
+import SoundOn from "../../Icons/sound-on.svg";
+import SoundOff from "../../Icons/sound-off.svg";
 import "./AudioButton.scss"
 
 const AudioButton = ({
-  onClick = () => { }
+  onClick = () => { },
+  disabled
 }) => {
   return (
     <div className="audioButtonWrapper">
@@ -13,14 +15,15 @@ const AudioButton = ({
         className="audioButton"
         onClick={onClick}
       >
-        <img className="audioImage" src={Audio} alt="Audio Button" />
+        <img className="audioImage" src={disabled ? SoundOff : SoundOn} alt="Audio Button" />
       </button>
     </div>
   )
 }
 
 AudioButton.propTypes = {
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired
 }
 
 export default AudioButton;
