@@ -3,7 +3,7 @@ import { selectTitle, showBackButton } from './NavBarUtils';
 const rootUrl = "/timers";
 
 it("decides whether the back button should be shown", () => {
-  expect(showBackButton(rootUrl)).toEqual(false);
+  expect(showBackButton(rootUrl)).toEqual(true);
   expect(showBackButton("/timers/0")).toEqual(true);
   expect(showBackButton("/timers/31")).toEqual(true);
   expect(showBackButton("/timers/new")).toEqual(true);
