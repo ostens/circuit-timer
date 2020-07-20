@@ -1,18 +1,23 @@
 import { path } from "../../constants";
 
+const pathRegex = url => new RegExp(`${url}\\/?$`);
 const pathWithIdRegex = url => new RegExp(`${url}\\/\\d+/?$`);
-const pages = pathWithIdRegex(path.list);
+
+const timerPlayerPaths = pathWithIdRegex(path.list);
+const timerListPaths = pathRegex(path.list);
+const timerFormPaths = pathRegex(path.form);
 
 export const showBackButton = (url) => 
-  url === path.form || pages.test(url);
+  timerFormPaths.test(url) || timerPlayerPaths.test(url);
 
 export const selectTitle = (url) => {
-  switch (url) {
-    case path.form:
-      return "Add a new timer";
-    case path.list:
-      return "Timers";
-    default:
-      return "Use your timer"
+  if (timerPlayerPaths.test(url)) {
+    return "Use your timer";
+  } else if (timerFormPaths.test(url)) {
+    return "Add a new timer";
+  } else if (timerListPaths.test(url)) {
+    return "Timers"
+  } else {
+    return "Circuit Timer";
   }
 }
