@@ -7,7 +7,7 @@ it("decides whether the back button should be shown", () => {
   expect(showBackButton("/timers/0")).toEqual(true);
   expect(showBackButton("/timers/31")).toEqual(true);
   expect(showBackButton("/timers/new")).toEqual(true);
-})
+});
 
 it("selects the correct title", () => {
   expect(selectTitle(rootUrl)).toEqual("Timers");
